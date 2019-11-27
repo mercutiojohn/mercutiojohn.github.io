@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>标签：排序 - 莫小白</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="研究研究，随便写写">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <meta name="description" content="研究研究，随便写写">
+<meta name="keywords" content="develop, share">
+<meta property="og:type" content="website">
+<meta property="og:title" content="莫小白">
+<meta property="og:url" content="http://mercutio.club/tags/排序/index.html">
+<meta property="og:site_name" content="莫小白">
+<meta property="og:description" content="研究研究，随便写写">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="莫小白">
+<meta name="twitter:description" content="研究研究，随便写写">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1574862069612">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="Mercutio" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Mercutio">
+            <img src="/images/avatar.jpg" alt="Mercutio">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>5</div>
+        <div><span>标签</span>4</div>
+        <div><span>分类</span>3</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/4325844/" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/mercutiojohn" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Algorithm/">Algorithm</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Termux/">Termux</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Algorithm/算法/">算法</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Termux/" style="font-size: 10px;">Termux</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2019 Mercutio
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <section class="nexmoe-posts" id="brand-waterfall">
+    
+    <div class="nexmoe-post">
+        <a href="/2019/11/19/七大经典排序算法/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="七大经典排序算法">
+                
+                <h1>七大经典排序算法</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月19日</a>
+            <a><i class="nexmoefont icon-areachart"></i>4.1k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 20 分钟</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Algorithm/">Algorithm</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/Algorithm/算法/">算法</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/排序/">排序</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/算法/">算法</a>
+            
+        </div>
+        <article>
+            
+            <!-- 原文地址 https://blog.csdn.net/weixin_43224539/article/details/88978013 -->
+
+<p>常见排序算法可以分为两大类：<br><strong>非线性时间比较类排序</strong>：通过比较来决定元素间的相对次序，由于其时间复杂度不能突破 O(nlogn)，因此称为非线性时间比较类排序。<br><strong>线性时间非比较类排序</strong>：不通过比较来决定元素间的相对次序，它可以突破基于比较排序的时间下界，以线性时间运行，因此称为线性时间非比较类排序。<br><img src="https://img-blog.csdn.net/20180924222317326?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JvY2xpbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt>   </p>
+<p>算法复杂度 </p>
+<p> <img src="https://img-blog.csdn.net/20180924222317358?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JvY2xpbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
+<h3 id="1-冒泡排序-BubbleSort"><a href="#1-冒泡排序-BubbleSort" class="headerlink" title="1. 冒泡排序 (BubbleSort)"></a>1. 冒泡排序 (BubbleSort)</h3><p>冒泡排序是一种简单的排序算法，是一种<strong>减治算法</strong>的应用, 通过重复走过要排序的数组，每一次比较两个<strong>相邻</strong>元素的大小，如果后一个元素比前一个元素小就交换过来，最终完成排序，这种算法的命名也是由最小的元素总是会慢慢从最后 “浮” 到前面来而得名 (每次从无序区间取一个数去无序区间遍历)</p>
+<p><strong>步骤：</strong></p>
+<ul>
+<li>从第一组两个相邻元素开始比较，依次往后交换</li>
+<li>每经过一次排序较大的元素就会被放到后面，直到最大的元素被放到最后，那么下一次排序的时候也就不用用它（最后一个数）和它相邻的前面的数进行比较了，最后的元素就成了 “稳定元素”</li>
+<li>重复以上步骤，每一次排序完成，最后的 “稳定元素” 都会增加一个，直到没有可以交换的元素，那么排序就完成了</li>
+</ul>
+<p>** 动态图演示：**</p>
+<p><img src="https://img-blog.csdnimg.cn/20190402182841860.gif" alt></p>
+<p>** 代码展示**</p>
+<pre><code>package com;
+
+import java.util.Arrays;
+
+/**
+ * package:com
+ * Description:bubbleSort
+ * @date:2019/4/27
+ * @Author:weiwei
+ **/
+public class bubbleSort {
+    /**
+     * 双层循环遍历数组
+     * 第一层循环表示循环次数,一次循环解决一个数的问题,一共需要array.length次
+     *       更优化的方式是array.length-1次(最后一个数不需要比较)
+     * 第二层比较相邻两个数的大小,共需要array.length-2-i次(i是循环到哪个数,2是最后一个数不用比较
+     *       下标从 0 开始,所以是减二
+     * @param array
+     * @return
+     */
+    private static int[] bubbleSort(int [] array){
+        for(int i = 0;i&lt;array.length;i++){
+            for(int j = 0;j &lt;= array.length -2-i;j++){
+
+                if(array[j] &gt; array[j+1]){
+                    int temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                }
+            }
+        }
+        return array;
+    }
+    public static void main(String[] args) {
+        int[] array = {9,2,4,7,5,8,1,3,6};
+        System.out.println(Arrays.toString(bubbleSort(array)));
+
+    }
+}</code></pre><h3 id="2-选择排序-SelectionSort"><a href="#2-选择排序-SelectionSort" class="headerlink" title="2. 选择排序 (SelectionSort)"></a>2. 选择排序 (SelectionSort)</h3><p>选择排序是一种简单直观的排序算法, 是<strong>减治算法</strong>的应用, 对数据不敏感, 原理是:</p>
+<p>   首先在未排序序列中找到最小元素, 存放到排列序列的起始位置, 然后在剩余未排序元素中继续寻找最小元素, 然后放到已经排好序序列的末尾, 以此类推, 直到所有元素均排序完毕</p>
+<p>步骤:</p>
+<ul>
+<li>把要排序的序列分为有序序列和无序序列</li>
+<li>遍历序列, 每一次从无序序列找到最小元素, 定义为 minIndex=i, 放到无序序列最前面,</li>
+<li>直到无序区间内没有元素, 也就是所有元素都排好序</li>
+</ul>
+<p>动图演示:</p>
+<p><img src="https://img-blog.csdnimg.cn/20190406212711758.gif" alt></p>
+<p>代码展示: </p>
+<pre><code>package Sort;
+
+import java.util.Arrays;
+
+/**
+ * Author:weiwei
+ * description:
+ * Creat:2019/5/2
+ **/
+public class SelectSort {
+
+    private static int[] SelectSort(int[] array) {
+        for (int i = 0; i &lt; array.length; i++) {
+            int min = i;
+            for (int j = i+1; j &lt; array.length; j++) {
+                if (array[j] &lt; array[min]) {
+                    min = j;
+                }
+            }
+            int t = array[min];
+            array[min] = array[i];
+            array[i] = t;
+
+        }
+        return array;
+    }
+
+    public static void main(String[] args) {
+        int[] array = {8,3,7,1,4,6,2,9,5};
+        System.out.println(Arrays.toString(SelectSort(array)));
+    }
+}</code></pre><h3 id="3-插入排序-Insertion-Sort"><a href="#3-插入排序-Insertion-Sort" class="headerlink" title="3. 插入排序 (Insertion Sort)"></a>3. 插入排序 (Insertion Sort)</h3><p>插入排序是一种简单直观的排序算法, 是<strong>减治算法</strong>的应用, 原理是: 通过构建有序数列, 对于未排序数据, 在已排序序列中, 从后往前扫描, 找到对应位置并插入 (每次从无序区间取一个数到有序区间去遍历, 找到插入的位置)</p>
+<p>步骤:</p>
+<ul>
+<li>从第一个元素开始, 认为第一个元素已经被排序</li>
+<li>取出下一个元素, 在已排好序的序列中从后往前扫描</li>
+<li>如果该元素 (已排好序) 大于新元素, 将该元素移到下一位置</li>
+<li>重复步骤 3, 直到找到已排好序的元素小于或者等于新元素的位置</li>
+<li>将新元素插入到该位置后</li>
+<li>重复步骤 2-5</li>
+</ul>
+<p>动图演示:</p>
+<p><img src="https://img-blog.csdnimg.cn/20190406215559907.gif" alt></p>
+<p>代码展示:</p>
+<pre><code>package Sort;
+
+import java.util.Arrays;
+
+/**
+ * Author:weiwei
+ * description:
+ * Creat:2019/5/3
+ **/
+public class insertSort {
+
+    /**遍历查找
+     *先查找
+     *再搬
+     * @param array
+     */
+    private static void insertSort1(int[] array){
+        for(int i =0;i&lt;array.length;i++){
+            //有序[0,i)
+            //无序[i,array.length)
+            //1.在有序区间遍历查找,从后往前查找
+            int j;
+            for(j=i-1;j &gt;= 0 &amp;&amp;array[i] &lt; array[j];j--){
+            }
+            //j+1就是要插入的位置
+            //插入数据,从后往前搬数据
+            int pos = j+1;
+            int key = array[i];
+            for( int k = i;k&gt;pos;k--){
+                array[k] = array[k-1];
+            }
+            array[pos] = key;
+        }
+    }
+
+    /**遍历查找
+     * 边查找边搬
+     * @param array
+     */
+    private static int[] insertSort2(int[] array){
+        int len = array.length;
+        int preIndex,current;
+        for(int i = 0;i&lt;len;i++){
+            preIndex = i-1;
+            current = array[i];
+
+            while(preIndex &gt;= 0 &amp;&amp; array[preIndex] &gt; current ){
+                array[preIndex+1] = array[preIndex];
+                preIndex--;
+            }
+            array[preIndex+1] = current;
+        }
+        return array;
+    }
+
+    /**
+     * 二分查找(重点)
+     * @param array
+     */
+    private static void insertSort3(int[] array){
+        for(int i = 0;i&lt;array.length;i++){
+            int key = array[i];
+            //[0,i)
+            int left = 0;
+            int right = i;
+
+            while(left &lt; right){
+                int mid = left + (left - right)/2;
+                if(key == array[mid]){
+                    left = mid + 1;
+                }else if(key &lt; array[mid]){
+                    right = mid;
+                }else{
+                    left = mid +1;
+                }
+            }
+            int pos = left;
+            for (int k = i;k&gt;pos;k--){
+                array[k] = array[k-1];
+            }
+            array[pos] = key;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array = {9,2,7,4,5,3,1,8,6,5};
+        insertSort1(array);
+        System.out.println(Arrays.toString(array));
+    }
+}</code></pre><h3 id="4-希尔排序（shell-sort）"><a href="#4-希尔排序（shell-sort）" class="headerlink" title="4. 希尔排序（shell sort）"></a>4. 希尔排序（shell sort）</h3><p>希尔排序是第一个突破 O(n^2) 的排序算法，是简单插入排序的改进法， 它与插入排序不同之处在于，它会提前做一个预排序, 给序列分组预排序, 也叫做<strong>分组插排</strong>, 分的组越多越接近有序</p>
+<p>动图演示：</p>
+<pre><code>                ![](https://img-blog.csdnimg.cn/2019041519563662.gif)</code></pre><p>代码展示：</p>
+<pre><code>package Sort;
+
+import java.util.Arrays;
+
+/**
+ * Author:weiwei
+ * description:希尔排序
+ * Creat:2019/5/3
+ **/
+public class insertSortWithGap {
+
+    private static void insertSortWithGap(int[] array, int gap) {
+        for (int i = 0; i &lt; array.length; i++) {
+            int key = array[i];
+            int j = i - gap;
+            for (; j &gt;= 0 &amp;&amp; key &lt; array[j]; j = j - gap) {
+                array[j + gap] = array[j];
+            }
+            array[j + gap] = key;
+        }
+    }
+
+    /**
+     * 时间复杂度:
+     * 最好情况:O(n)
+     * 最坏情况:O(n^2)   比插排最坏情况的概率变小了
+     * 平均情况:O(n^1.2 - 1.3)
+     * 空间复杂度:O(1)
+     * 稳定性:不稳定
+     *
+     * @param array
+     */
+    private static int[] shellSort(int[] array) {
+        int gap = array.length;
+        while (true) {
+            //gap = gap /2;
+            gap = (gap / 3) + 1;
+
+            insertSortWithGap(array, gap);
+
+            if (gap == 1) {
+                break;
+            }
+        }
+        return array;
+    }
+
+    public static void main(String[] args) {
+        int [] array = {9,3,1,4,7,2,8,6,5};
+        System.out.println(Arrays.toString(shellSort(array)));
+    }
+}</code></pre><h3 id="5-归并排序（Merge-sort）"><a href="#5-归并排序（Merge-sort）" class="headerlink" title="5. 归并排序（Merge sort）"></a>5. 归并排序（Merge sort）</h3><p>归并排序是建立在一种建立在归并算法上一种有效的排序方法，该方法是采用<strong>分治算法</strong>的一个典型的应用，对数据不敏感, 将已有序的子序列合并，得到完全有序的序列，即先使每个子序列有序，再使子序列间有序，算法复杂度为 (nlogn)</p>
+<p>算法描述：</p>
+<ol>
+<li><p>把长度为 n 的序列分为两个长度为 n/2 的子序列</p>
+</li>
+<li><p>对这两个子序列分别归并排序</p>
+</li>
+<li><p>将两个排序好的子序列合并成一个最终的有序序列</p>
+</li>
+</ol>
+<p>动图演示：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190415201449551.gif" alt></p>
+<p>代码展示：</p>
+<pre><code>package Sort;
+
+import java.util.Arrays;
+
+/**
+ * Author:weiwei
+ * description:归并排序(递归方式)
+ * Creat:2019/4/27
+ **/
+public class MergeSort {
+    private static void merge(int[] array,int low,int mid,int high,int[] extra){
+        int i = low;  //遍历[low,mid]
+        int j = mid;  //遍历[mid,high]
+        int x = 0;    //遍历extra
+
+        while(i &lt; mid &amp;&amp; j &lt; high){
+             if(array[i] &lt;= array[j]){
+                 extra[x++] = array[i++];
+             }else{
+                 extra[x++] = array[j++];
+             }
+        }
+        while(i &lt; mid){
+            extra[x++] = array[i++];
+        }
+        while(j &lt; high){
+            extra[x++] = array[j++];
+        }
+        for(int k = low;k &lt; high;k++){
+            array[k] = extra[k - low];
+        }
+    }
+    private static void mergeSortInner(int[] array,int low,int high,int[] extra){
+        if (low == high - 1){
+            return;
+        }
+        if(low &gt;= high){
+            return;
+        }
+
+        //平均切分
+        int mid = low + (high - low)/2;
+        //[low,mid)+[mid,high)
+        //2.分治算法处理两个小区间
+        mergeSortInner(array,low,mid,extra);
+        mergeSortInner(array,mid,high,extra);
+
+        //左右两个小区间已经有序了
+        merge(array,low,mid,high,extra);
+    }
+
+    private static void mergeSort(int[] array) {
+        int[] extra = new int [array.length];//设定长度,避免造成空间浪费
+        mergeSortInner(array,0,array.length,extra);
+    }
+
+    //非递归方式
+    private static void mergeNoR(int[] array){
+        int[] extra = new int [array.length];
+        for(int i = 1;i&lt;array.length;i *= 2){
+            for(int j =0;j&lt;array.length;j +=2 * i){
+                int low = j;
+                int mid = low + i;
+                if( mid &gt;= array.length){
+                    continue;
+                }
+                int high = mid + i;
+                if(high &gt; array.length){
+                    high = array.length;
+                }
+                merge(array,low,mid,high,extra);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array1 = {9,3,1,5,4,2,7,6,8};
+        int[] array2 = {8,3,1,2,5,3,7,6,2};
+        mergeSort(array1);
+        mergeNoR(array2);
+        System.out.println(Arrays.toString(array1));
+        System.out.println(Arrays.toString(array2));
+    }
+}</code></pre><h3 id="6-快速排序-Quick-Sort"><a href="#6-快速排序-Quick-Sort" class="headerlink" title="6. 快速排序 (Quick Sort)"></a>6. 快速排序 (Quick Sort)</h3><p>  快速排序的基本思想：</p>
+<pre><code>    在要排序的序列中选择一个基准值 (通常选择最右边的值为基准值), 然后遍历整个序列, 每个数都和基准值进行比较, 并且发生一定的交换, 遍历结束后使得比基准值小的数(包括等于) 都在基准值的左边, 比基准值大的数 (包括等于) 都在基准值的右边, 然后采用分治算法的思想, 分别对两个小的区间进行同样的方式处理, 直到区间的 size=0 或者 = 1, 就说明序列已经有序了, 快速排序完成</code></pre><p>算法描述:</p>
+<p>快速排序使用<strong>分治算法</strong>来把一个序列分为两个子序列, 具体算法描述如下：</p>
+<ol>
+<li><p>从序列中选择最右边的数作为基准, 称为 “基准值”（<strong>pivot</strong>）；</p>
+<p><img src="https://img-blog.csdnimg.cn/20190504163305330.png" alt>  </p>
+</li>
+<li><p>遍历排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一               边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（<strong>partition</strong>）操作；</p>
+<pre><code> ![](https://img-blog.csdnimg.cn/2019050416332747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzIyNDUzOQ==,size_16,color_FFFFFF,t_70)  </code></pre></li>
+<li><p>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。</p>
+</li>
+</ol>
+<p>快速排序的步骤:</p>
+<ol>
+<li>选择基准值 (选择基准值有三个方法)</li>
+</ol>
+<ul>
+<li>选择最边上作为基准值 (左右都可以)</li>
+<li>随机法 (random.nextInt())</li>
+<li>三数取中法 [对于第二三中方法, 确定基准值后, 将基准值交换到最边上]      </li>
+</ul>
+<ol start="2">
+<li>分割 (partition 操作), 比基准值 &lt;= 在基准值左边, 比基准值 &gt;= 在基准值右边, partition 操作也有三种方法:</li>
+</ol>
+<ul>
+<li>Hover 法 (左右遍历)</li>
+<li>挖坑法 (左右遍历)</li>
+<li>前后下标法 (前后遍历)</li>
+</ul>
+<ol start="3">
+<li>用分治法处理左右两个小区间, 直到区间的 size == 1(已经有序) 或者 size == 0, 则停止排序 动态图展示: </li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190415211841667.gif" alt></p>
+<p>代码展示:</p>
+<p>快速排序</p>
+<pre><code>package Sort;
+
+import java.util.Arrays;
+
+/**
+ * Author:weiwei
+ * description:快速排序
+ * Creat:2019/4/27
+ **/
+public class QuickSort {
+
+    private static void swap(int[] array,int i,int j){
+        int t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+    }
+
+    private static int  partition1(int[] array,int left,int right){
+        int begin = left;
+        int end = right;
+        int pivot = array[right];
+        while(begin &lt; end){
+            while( begin &lt; end &amp;&amp; array[begin] &lt;= pivot){
+                begin++;  //当前数比基准值小,就往后遍历,遇到比基准值大的数才停下来
+            }
+            while(begin &lt; end &amp;&amp; array[end] &gt;= pivot){
+                end--;    //当前数比基准值大,就往前遍历,遇到比基准值小的数才停下来
+            }
+            swap(array,begin,end); //否则,遍历无法继续,交换所指向的值,再继续遍历
+        }
+        swap(array,begin,right);  //遍历到最后begin == end,将right的值与begin的值交换
+        return begin;             //此时,序列中基准值左边所有的值就比基准值小,右边的数就比基准值大
+
+    }
+private static void quickSortInner(int[] array,int left,int right){
+        if(left &gt; right){
+            //size == 1 已经有序
+            return;
+        }
+        if(left == right){
+            //size == 0
+            return;
+        }
+        int originIndex = medianofthree(array,left,right);
+        swap(array,originIndex,right);
+
+        //要排序的区间是array[left,right]
+        //1.找基准值 array[right]
+        //2.遍历整个区间,把区间的为三部分
+        int pivotIndex = partition1(array,left,right);
+        //3.分治算法
+        //用相同的方式处理两个小区间,直到size == 1 | size == 0
+        //比基准值小的区间[left,pivotIndex-1]
+        quickSortInner(array,left,pivotIndex-1);
+        //比基准值大的区间[pivotIndex+1,right]
+        quickSortInner(array,pivotIndex+1,right);
+    }
+    private static void  quickSort(int[] array){
+        quickSortInner(array,0,array.length -1);
+    }
+
+    public static void main(String[] args) {
+        int[] array = {9,3,1,5,4,2,7,6,8};
+        quickSort(array);
+        System.out.println(Arrays.toString(array));
+    }
+}</code></pre><p> 用 Hover 方法进行 partition 操作</p>
+<pre><code>//Hover法做partition操作
+    private static int  partition1(int[] array,int left,int right){
+        int begin = left;
+        int end = right;
+        int pivot = array[right];
+        while(begin &lt; end){
+            while( begin &lt; end &amp;&amp; array[begin] &lt;= pivot){
+                begin++;  //当前数比基准值小,就往后遍历,遇到比基准值大的数才停下来
+            }
+            while(begin &lt; end &amp;&amp; array[end] &gt;= pivot){
+                end--;    //当前数比基准值大,就往前遍历,遇到比基准值小的数才停下来
+            }
+            swap(array,begin,end); //否则,遍历无法继续,交换所指向的值,再继续遍历
+        }
+        swap(array,begin,right);  //遍历到最后begin == end,将right的值与begin的值交换
+        return begin;             //此时,序列中基准值左边所有的值就比基准值小,右边的数就比基准值大
+
+    }</code></pre><p>用挖坑法做 partition 操作</p>
+<pre><code>//用挖坑法做partition操作
+    private static int partition2(int[] array,int left,int right){
+        int begin = left;
+        int end = right;
+        int pivot = array[right];
+        while(begin &lt; end){
+            while(begin &lt; end &amp;&amp; array[begin] &lt;= pivot){
+                begin++;   //当前数比基准值小,就往后遍历,遇到比基准值大的数才停下来
+            }
+            array[begin] = array[end];  //否则,将end的值赋给begin
+            while(begin &lt; end &amp;&amp; array[begin] &lt;= pivot){
+                end--;    //当前数比基准值大,就往前遍历,遇到比基准值小的数才停下来
+            }
+            array[end] = array[begin]; //否则,将begin的值赋给end
+        }
+        array[begin] = pivot;  //最终begin == end时,将pivot的值赋给begin
+        return begin;
+    }</code></pre><p> 用前后遍历的方法 partition 操作</p>
+<pre><code>//前后下标法做partition操作
+    private static int parttiton3(int[] array,int left,int right){
+        int d = left;
+        for(int i = left;i&lt;right;i++){
+            if(array[i] &lt; array[right]){
+                swap(array,d,i);
+                d++;
+            }
+        }
+        swap(array,d,right);
+        return d;
+    }</code></pre><p>选择基准的方法: 三数取中法</p>
+<pre><code>//三数取中
+    private static int medianofthree(int[] array,int left,int right) {
+        int mid = left + (right - left) / 2;
+        if (array[left] &gt; array[right]) {
+            if (array[left] &lt; array[mid]) {
+                return left;
+            } else if (array[mid] &gt; array[right]) {
+                return mid;
+            } else {
+                return right;
+            }
+        } else {
+            if (array[right] &lt; array[mid]) {
+                return right;
+            } else if (array[mid] &gt; array[left]) {
+                return mid;
+            } else {
+                return left;
+            }
+        }
+    }</code></pre><h3 id="7-堆排序-Heap-Sort"><a href="#7-堆排序-Heap-Sort" class="headerlink" title="7. 堆排序 (Heap Sort)"></a>7. 堆排序 (Heap Sort)</h3><p>堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。是<strong>减治算法</strong>的应用, 对数据不敏感, 堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。</p>
+<p> 算法描述</p>
+<pre><code> 1. 将初始待排序关键字序列构建成大堆，此堆为初始的无序区；  
+ 2. 选择最大的元素 (堆顶元素) 放到无序序列最后面，此时得到新的无序区和新的有序区, 每次在无序序列中选择最大的的元素放到无序序列最后面,  
+ 3. 直到最后叶子结点, 不再向下调整, 堆排序完成  </code></pre><p>动态图演示:</p>
+<pre><code>                                  ![](https://img-blog.csdnimg.cn/20190421095934922.gif)</code></pre><p>代码展示:</p>
+<pre><code>package com.bittech;
+
+/**
+ * Author:weiwei
+ * description:堆排序
+ * Creat:2019/4/27
+ **/
+public class heapSort {
+
+    private static void heapify(int[] array,int size,int index){
+        //判断index是不是叶子结点
+        while(2*index+1 &lt; size){
+            //找到最大孩子的下标
+            int max = 2 * index + 1;
+            if(max + 1 &lt;size &amp;&amp; array[max+1] &gt; array[max]){
+                max = 2 * index + 2;
+            }
+
+            //3.判断最大得孩子和根的值
+            if(array[index] &lt; array[max]){
+                swap(array,index,max);
+
+                index = max;
+            }else{
+                //根的值比较大,不需要交换,可以直接退出了
+                break;
+            }
+        }
+    }
+    private static void createHeap(int[] array){
+        //[从最后一个非叶子节点的下标,根]  向下调整
+        //[(array.length-2)/2,0]
+        for(int i = (array.length-2/2);i&gt;=0;i--){
+            heapify(array,array.length,i);
+        }
+    }
+    private static void swap(int[] array,int i,int j){
+        int t =array[i];
+        array[i] = array[j];
+        array[j] = t;
+
+    }
+    private static void heapSort(int[] array){
+        //建堆  大堆
+        createHeap(array);
+
+        //减治处理
+        for(int i =0;i&lt;array.length;i++){
+            //有序[length - i,length]
+            //无序[0,length - i - 1]
+            //最大的数在[0],最大的数应该放到的下标是
+            //[length-i-1]
+            swap(array,0,array.length -1-i);
+            //处理[0]无序剩余部分满足堆的性质
+            //无序[0,length-i-2]
+            //有序[length-i-1,length]
+            //size剩余无序部分的长度
+            heapify(array,array.length-1-i,0);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array = { 9, 5, 2, 7, 3, 6, 8, 8, 4, 9, 3, 1, 2 };
+        heapSort(array);
+        for (int item: array) {
+            System.out.print(item + &quot; &quot;);
+        }
+        System.out.println();
+    }
+}</code></pre>
+            
+        </article>
+    </div>
+    
+</section>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1574862069615"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>Termux高级终端安装使用配置教程 - 莫小白</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="研究研究，随便写写">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <meta name="description" content="Termux 高级终端安装使用配置教程, 这篇文章拖了有小半年. 因为网上相关的文章相对来说还是比较少的, 恰好今天又刷了机, 所以就特意来总结一下, 希望本文可以帮助到其他的小伙伴. 发挥 Android 平台更大的 DIY 空间. Termux是一个Android下一个高级的终端模拟器, 开源且不需要root, 支持apt管理软件包，十分方便安装软件包, 完美支持Python,PHP,R">
+<meta name="keywords" content="develop, share">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Termux高级终端安装使用配置教程">
+<meta property="og:url" content="http://mercutio.club/2019/11/19/Termux 高级终端安装使用配置教程/index.html">
+<meta property="og:site_name" content="莫小白">
+<meta property="og:description" content="Termux 高级终端安装使用配置教程, 这篇文章拖了有小半年. 因为网上相关的文章相对来说还是比较少的, 恰好今天又刷了机, 所以就特意来总结一下, 希望本文可以帮助到其他的小伙伴. 发挥 Android 平台更大的 DIY 空间. Termux是一个Android下一个高级的终端模拟器, 开源且不需要root, 支持apt管理软件包，十分方便安装软件包, 完美支持Python,PHP,R">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251875958364.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251424532278.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251425706184.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251430134084.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252398558622.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251492617193.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251507436942.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251516872451.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251531807018.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251534292438.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251540733399.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251541015433.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251541397.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251541908342.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251542579462.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251478499802.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253204397796.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252406356840.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251567018423.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252619337456.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252622202484.png">
+<meta property="og:image" content="https://image.3001.net/images/20180507/15256704978052.png">
+<meta property="og:image" content="https://image.3001.net/images/20180507/1525670956965.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252522986960.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/1525253245778.png!">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252523713030.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/1525254451611.png!">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252521782388.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252536832530.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252663642248.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/1525267319924.png!">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252677611697.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252684925926.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/152526900352.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252705506839.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252722868294.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251677413951.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/152516780621.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251709032749.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251711666731.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251690917140.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251603187936.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251607456224.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251608278605.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251762051594.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251770923501.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251777161538.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251785128162.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251788017133.gif">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251829165152.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251831922563.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251833614865.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252383228620.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252318618015.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252458901236.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252463292840.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251896513740.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252481801600.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252484266727.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15251904412057.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/1525190501582.png!">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251634576779.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251646896319.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251652383913.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251669649531.png">
+<meta property="og:image" content="https://image.3001.net/images/20180501/15251672621339.png">
+<meta property="og:image" content="https://image.3001.net/images/20180502/15252753579498.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253177578355.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253179015491.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253180376304.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/1525317995747.png!">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253115369877.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253126104329.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253128744968.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253131256045.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253135795603.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253140551807.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253138725488.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253150101146.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253248656208.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253279325608.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/152531894937.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253195783545.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253189096532.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/15253199952050.png">
+<meta property="og:image" content="https://image.3001.net/images/20180503/1525326786911.png">
+<meta property="og:updated_time" content="2019-11-19T13:34:00.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Termux高级终端安装使用配置教程">
+<meta name="twitter:description" content="Termux 高级终端安装使用配置教程, 这篇文章拖了有小半年. 因为网上相关的文章相对来说还是比较少的, 恰好今天又刷了机, 所以就特意来总结一下, 希望本文可以帮助到其他的小伙伴. 发挥 Android 平台更大的 DIY 空间. Termux是一个Android下一个高级的终端模拟器, 开源且不需要root, 支持apt管理软件包，十分方便安装软件包, 完美支持Python,PHP,R">
+<meta name="twitter:image" content="https://image.3001.net/images/20180501/15251875958364.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1574862069538">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="Mercutio" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Mercutio">
+            <img src="/images/avatar.jpg" alt="Mercutio">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>5</div>
+        <div><span>标签</span>4</div>
+        <div><span>分类</span>3</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/4325844/" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/mercutiojohn" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Algorithm/">Algorithm</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Termux/">Termux</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Algorithm/算法/">算法</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Termux/" style="font-size: 10px;">Termux</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2019 Mercutio
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        
+        <h1>Termux高级终端安装使用配置教程</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月19日</a>
+    <a><i class="nexmoefont icon-areachart"></i>7.4k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 32 分钟</a>
+    
+    
+  </div>
+  <article>
+    <!-- 原文地址 https://www.sqlsec.com/2018/05/termux.html#toc-heading-9 -->
+
+<p><img src="https://image.3001.net/images/20180501/15251875958364.png" alt></p>
+<p>Termux 高级终端安装使用配置教程, 这篇文章拖了有小半年. 因为网上相关的文章相对来说还是比较少的, 恰好今天又刷了机, 所以就特意来总结一下, 希望本文可以帮助到其他的小伙伴. 发挥 Android 平台更大的 DIY 空间.</p>
+<p><code>Termux</code>是一个<code>Android</code>下一个高级的终端模拟器, 开源且不需要<code>root</code>, 支持<code>apt</code>管理软件包，十分方便安装软件包, 完美支持<code>Python</code>,<code>PHP</code>,<code>Ruby</code>,<code>Go</code>,<code>Nodejs</code>,<code>MySQL</code>等。随着智能设备的普及和性能的不断提升，如今的手机、平板等的硬件标准已达到了初级桌面计算机的硬件标准, 用心去打造完全可以把手机变成一个强大的工具.</p>
+<ul>
+<li><a href="https://termux.com/" target="_blank" rel="noopener">官网</a></li>
+<li><a href="https://github.com/termux/termux-app" target="_blank" rel="noopener">Github 项目地址</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.termux" target="_blank" rel="noopener">Google Play 下载地址</a></li>
+</ul>
+<blockquote>
+<p>Google Play 下载的版本比酷安要新, 有能力建议下载 Google PLay 版本的.</p>
+</blockquote>
+<h2 id="长按屏幕"><a href="#长按屏幕" class="headerlink" title="长按屏幕"></a><a href="#长按屏幕" title="长按屏幕"></a>长按屏幕</h2><p>显示菜单项（包括复制、粘贴、更多），此时屏幕出现可选择的复制光标</p>
+<p><img src="https://image.3001.net/images/20180501/15251424532278.png" alt></p>
+<pre><code>长按屏幕
+├── COPY:复制
+├── PASTE:更多
+├── More:更多
+   ├── Select URL: 选择网址
+   └── Share transcipt: 分享命令脚本
+   └── Reset: 重置
+   └── Kill process: 杀掉当前终端会话进程
+   └── Style: 风格配色
+   └── Help: 帮助文档</code></pre><h2 id="从左向右滑动"><a href="#从左向右滑动" class="headerlink" title="从左向右滑动"></a><a href="#从左向右滑动" title="从左向右滑动"></a>从左向右滑动</h2><p>显示隐藏式导航栏，可以新建、切换、重命名会话 session 和调用弹出输入法</p>
+<p><img src="https://image.3001.net/images/20180501/15251425706184.png" alt></p>
+<h2 id="显示扩展功能按键"><a href="#显示扩展功能按键" class="headerlink" title="显示扩展功能按键"></a><a href="#显示扩展功能按键" title="显示扩展功能按键"></a>显示扩展功能按键</h2><p>扩展功能键是什么? 就是 PC 端常用的按键如: ESC 键，CTR 键，TAB 键, 但是手机上难以操作的一些按键.</p>
+<p><strong>效果图</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251430134084.png" alt></p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a><a href="#方法一" title="方法一"></a>方法一</h3><p>从左向右滑动, 显示隐藏式导航栏, 长按左下角的<code>KEYBOARD</code>.</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a><a href="#方法二" title="方法二"></a>方法二</h3><p>使用<code>Termux</code>快捷键:<code>音量+</code>+<code>Q</code>键</p>
+<p><code>Ctrl</code>键是终端用户常用的按键 - 但大多数触摸键盘都没有这个按键。为此，Termux 使用<code>音量减小按钮</code>来模拟<code>Ctrl</code>键。<br>例如，在触摸键盘上按<code>音量减小</code>+ <code>L</code>发送与在硬件键盘上按<code>Ctrl + L</code>相同的输入。</p>
+<ul>
+<li><code>Ctrl+A</code> -&gt; 将光标移动到行首</li>
+<li><code>Ctrl+C</code> -&gt; 中止当前进程</li>
+<li><code>Ctrl+D</code> -&gt; 注销终端会话</li>
+<li><code>Ctrl+E</code> -&gt; 将光标移动到行尾</li>
+<li><code>Ctrl+K</code> -&gt; 从光标删除到行尾</li>
+<li><code>Ctrl+L</code> -&gt; 清除终端</li>
+<li><code>Ctrl+Z</code> -&gt; 挂起（发送 SIGTSTP 到）当前进程</li>
+</ul>
+<p><code>音量加键</code>也可以作为产生特定输入的<code>特殊键</code>.</p>
+<ul>
+<li><code>音量加+E</code> -&gt; Esc 键</li>
+<li><code>音量加+T</code> -&gt; Tab 键</li>
+<li><code>音量加+1</code> -&gt; F1（和音量增加 + 2→F2 等）</li>
+<li><code>音量加+0</code> -&gt; F10</li>
+<li><code>音量加+B</code> -&gt; Alt + B，使用 readline 时返回一个单词</li>
+<li><code>音量加+F</code> -&gt; Alt + F，使用 readline 时转发一个单词</li>
+<li><code>音量加+X</code> -&gt; Alt+X</li>
+<li><code>音量加+W</code> -&gt; 向上箭头键</li>
+<li><code>音量加+A</code> -&gt; 向左箭头键</li>
+<li><code>音量加+S</code> -&gt; 向下箭头键</li>
+<li><code>音量加+D</code> -&gt; 向右箭头键</li>
+<li><code>音量加+L</code> -&gt; | （管道字符）</li>
+<li><code>音量加+H</code> -&gt; 〜（波浪号字符）</li>
+<li><code>音量加+U</code> -&gt; _ (下划线字符)</li>
+<li><code>音量加+P</code> -&gt; 上一页</li>
+<li><code>音量加+N</code> -&gt; 下一页</li>
+<li><code>音量加+.</code> -&gt; Ctrl + \（SIGQUIT）</li>
+<li><code>音量加+V</code> -&gt; 显示音量控制</li>
+<li><code>音量加+Q</code> -&gt; 显示额外的按键视图</li>
+</ul>
+<p><code>Termux</code>除了支持<code>apt</code>命令外, 还在此基础上封装了<code>pkg</code>命令,<code>pkg</code>命令向下兼容<code>apt</code>命令.<code>apt</code>命令大家应该都比较熟悉了, 这里直接简单的介绍下<code>pkg</code>命令:</p>
+<p>Bash</p>
+<pre><code>pkg search &lt;query&gt;              搜索包
+pkg install &lt;package&gt;           安装包
+pkg uninstall &lt;package&gt;         卸载包
+pkg reinstall &lt;package&gt;         重新安装包
+pkg update                      更新源
+pkg upgrade                     升级软件包
+pkg list-all                    列出可供安装的所有包
+pkg list-installed              列出已经安装的包
+pkg shoe &lt;package&gt;              显示某个包的详细信息
+pkg files &lt;package&gt;             显示某个包的相关文件夹路径</code></pre><p>Bash</p>
+<pre><code>~ &gt; echo $HOME
+/data/data/com.termux/files/home
+
+ ~ &gt; echo $PREFIX
+/data/data/com.termux/files/usr
+
+ ~ &gt; echo $TMPPREFIX
+/data/data/com.termux/files/usr/tmp/zsh</code></pre><p>长期使用 Linux 的朋友可能会发现，这个 HOME 路径看上去可能不太一样, 为了方便,<code>Termux</code> 提供了一个特殊的环境变量:<code>PREFIX</code></p>
+<p><img src="https://image.3001.net/images/20180502/15252398558622.png" alt></p>
+<p>更换<code>Termux</code>清华大学源, 加快软件包下载速度.</p>
+<h2 id="设置默认编辑器"><a href="#设置默认编辑器" class="headerlink" title="设置默认编辑器"></a><a href="#设置默认编辑器" title="设置默认编辑器"></a>设置默认编辑器</h2><h2 id="编辑源文件"><a href="#编辑源文件" class="headerlink" title="编辑源文件"></a><a href="#编辑源文件" title="编辑源文件"></a>编辑源文件</h2><p>将原来的<code>https://termux.net</code>官方源替换为<code>http://mirrors.tuna.tsinghua.edu.cn/termux</code></p>
+<p>Bash</p>
+<pre><code>export EDITOR=vi</code></pre><h2 id="直接编辑源文件"><a href="#直接编辑源文件" class="headerlink" title="直接编辑源文件"></a><a href="#直接编辑源文件" title="直接编辑源文件"></a>直接编辑源文件</h2><p>上面是官方推荐的方法, 其实还有更简单的方法, 类似于 Linux 下直接去编辑源文件:</p>
+<p>Bash</p>
+<pre><code>apt edit-sources</code></pre><p>如果清华源 出一些问题的话，大家可以尝试先用着官方源：</p>
+<p>Bash</p>
+<pre><code># The termux repository mirror from TUNA:
+deb https://mirrors.tuna.tsinghua.edu.cn/termux stable main保存并退出</code></pre><p>Bash</p>
+<pre><code>vi  $PREFIX/etc/apt/sources.list</code></pre><h2 id="终端配色"><a href="#终端配色" class="headerlink" title="终端配色"></a><a href="#终端配色" title="终端配色"></a>终端配色</h2><p>主要使用了<code>zsh</code>来替代<code>bash</code>作为默认<code>shell</code>.  
+使用一键安装脚本来安装, 一步到位, 顺便启动了外置存储, 可以直接访问 SD 卡下的目录.</p>
+<blockquote>
+<p>执行下面这个命令确保已经安装好了 curl</p>
+</blockquote>
+<p>Bash</p>
+<pre><code># The main termux repository:
+deb https://termux.org/packages/ stable main</code></pre><p><img src="https://image.3001.net/images/20180501/15251492617193.png" alt></p>
+<p>Android6.0 以上会弹框确认是否授权,</p>
+<p><code>允许</code></p>
+<p>授权后</p>
+<p><code>Termux</code></p>
+<p>可以方便的访问 SD 卡文件.</p>
+<p>脚本允许后先后有如下两个选项:</p>
+<pre><code>pkg update
+pkg install vim curl wget git unzip unrar</code></pre><p>分别选择<code>背景色</code>和<code>字体</code><br>想要继续更改挑选配色的话, 继续运行脚本来再次筛选:</p>
+<p>Bash</p>
+<pre><code>sh -c &quot;$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)&quot;</code></pre><p><code>exit</code>重启<code>sessions</code>会话生效配置</p>
+<h2 id="访问外置存储优化"><a href="#访问外置存储优化" class="headerlink" title="访问外置存储优化"></a><a href="#访问外置存储优化" title="访问外置存储优化"></a>访问外置存储优化</h2><p>执行过上面的<code>zsh</code>一键配置脚本后, 并且授予文件访问权限的话, 会在家目录生成<code>storage</code>目录，并且生成若干目录，软连接都指向外置存储卡的相应目录</p>
+<p><img src="https://image.3001.net/images/20180501/15251507436942.png" alt></p>
+<p><strong>创建 QQ 文件夹软连接</strong></p>
+<p>手机上一般经常使用手机 QQ 来接收文件, 这里为了方便文件传输, 直接在<code>storage</code>目录下创建软链接.<br><strong>QQ</strong></p>
+<p>Bash</p>
+<pre><code>Enter a number, leave blank to not to change: 14
+Enter a number, leave blank to not to change: 6</code></pre><p><strong>TIM</strong></p>
+<p>Bash</p>
+<pre><code>$ ~/termux-ohmyzsh/install.sh</code></pre><p>最后效果图如下:</p>
+<p><img src="https://image.3001.net/images/20180501/15251516872451.png" alt></p>
+<p>这样可以直接在</p>
+<p><code>home</code></p>
+<p>目录下去访问 QQ 文件夹, 非常方便文件的传输, 大大提升了工作效率.</p>
+<p><a href="http://mirrors.tuna.tsinghua.edu.cn/termux" target="_blank" rel="noopener">http://mirrors.tuna.tsinghua.edu.cn/termux</a></p>
+<h2 id="oh-my-zsh-主题配色"><a href="#oh-my-zsh-主题配色" class="headerlink" title="oh my zsh 主题配色"></a><a href="#oh-my-zsh主题配色" title="oh my zsh主题配色"></a>oh my zsh 主题配色</h2><p>编辑<code>.zshrc</code>配置文件</p>
+<p>第一行可以看到, 默认的主题是<code>agnoster</code>主题:</p>
+<p><img src="https://image.3001.net/images/20180501/15251531807018.png" alt></p>
+<p>在</p>
+<p><code>.oh-my-zsh/themes</code></p>
+<p>目录下放着</p>
+<p><code>oh-my-zsh</code></p>
+<p>所有的主题配置文件.</p>
+<p>下面是国光认为还不错的几款主题</p>
+<p><strong>agnoster</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251534292438.png" alt></p>
+<p><strong>robbyrussell</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251540733399.png" alt></p>
+<p><strong>jaischeema</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251541015433.png" alt></p>
+<p><strong>re5et</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251541397.png" alt></p>
+<p><strong>junkfood</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251541908342.png" alt></p>
+<p><strong>cloud</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251542579462.png" alt></p>
+<p><strong>random</strong></p>
+<p>当然如果你是个变态的话, 可以尝试<code>random</code>主题, 每打开一个会话配色主题都是随机的.</p>
+<h2 id="修改启动问候语"><a href="#修改启动问候语" class="headerlink" title="修改启动问候语"></a><a href="#修改启动问候语" title="修改启动问候语"></a>修改启动问候语</h2><p>默认的启动问候语如下:</p>
+<p><img src="https://image.3001.net/images/20180501/15251478499802.png" alt></p>
+<p>这个对于初学者有一定的帮助在前期, 随着对</p>
+<p><code>Termux</code></p>
+<p>的熟悉, 这个默认的问候语就会显得比较臃肿.</p>
+<p>编辑问候语文件直接修改问候语:</p>
+<p>修改完的效果如下:</p>
+<p><img src="https://image.3001.net/images/20180503/15253204397796.png" alt></p>
+<p>这样启动新的会话的时候看上去就会简洁很多.</p>
+<h2 id="手机没有-root"><a href="#手机没有-root" class="headerlink" title="手机没有 root"></a><a href="#手机没有root" title="手机没有root"></a>手机没有 root</h2><p>利用<code>proot</code>工具来模拟某些需要 root 的环境</p>
+<p>然后终端下面输入:</p>
+<p>即可模拟<code>root</code>环境<br>在这个<code>proot</code>环境下面, 相当于是进入了<code>home</code>目录, 可以很方便地进行一些配置.</p>
+<p><img src="https://image.3001.net/images/20180502/15252406356840.png" alt></p>
+<p>在管理员身份下，输入</p>
+<p><code>exit</code></p>
+<p>可回到普通用户身份。</p>
+<h2 id="手机已经-root"><a href="#手机已经-root" class="headerlink" title="手机已经 root"></a><a href="#手机已经root" title="手机已经root"></a>手机已经 root</h2><p>安装<code>tsu</code>, 这是一个<code>su</code>的 termux 版本, 用来在 termux 上替代<code>su</code>:</p>
+<p>然后终端下面输入:</p>
+<p>即可切换<code>root</code>用户, 这个时候会弹出<code>root</code>授权提示, 给予其<code>root</code>权限, 效果图如下:</p>
+<p><img src="https://image.3001.net/images/20180501/15251567018423.png" alt></p>
+<p>在管理员身份下，输入</p>
+<p><code>exit</code></p>
+<p>可回到普通用户身份。</p>
+<p>因为<code>termux</code>可以很好的支持<code>Python</code>, 所以几乎所有用<code>Python</code>编写的安全工具都是可以完美的运行使用的. 总的来说可玩性还是比较高的.</p>
+<h2 id="Metasploit"><a href="#Metasploit" class="headerlink" title="Metasploit"></a><a href="#Metasploit" title="Metasploit"></a>Metasploit</h2><p><strong>安装Ｍetasploit</strong></p>
+<p>Termux 官方提供的自动话脚本安装方法如下:</p>
+<pre><code>ln -s /data/data/com.termux/files/home/storage/shared/tencent/QQfile_recv QQ</code></pre><blockquote>
+<p>注　在 x86 平台下自动化安装失败，想在 x86 平台下安装的参考　<a href="https://wiki.termux.com/wiki/Metasploit_Framework" target="_blank" rel="noopener">官方的文档</a> 手动去安装．　　</p>
+</blockquote>
+<p>这个过程平均耗时大约 3 分钟左右（使用国内的清华源的情况下）．　　</p>
+<p><strong>配置 msf 数据库缓存</strong></p>
+<p>意外发现数据库居然都配置好了，启动<code>msfconsole会</code>自动连接数据库了．　　</p>
+<p><img src="https://image.3001.net/images/20180502/15252619337456.png" alt></p>
+<p>接下来重建数据库缓存</p>
+<p>这个时候立刻去搜索发现缓存依然没有建立，只能使用慢速搜索，这里其实是这个缓存建立需要时间，只要稍微等待一下就可以了．</p>
+<blockquote>
+<p>国光以前这里做过测试，缓存建立的平均时间是 3 分钟左右．</p>
+</blockquote>
+<p>然后就可以实现<code>msf</code>秒搜索的效果了，无需等待，感觉比电脑上还要快呐　　</p>
+<p><img src="https://image.3001.net/images/20180502/15252622202484.png" alt></p>
+<h3 id="解决-metasploit-启动后无法连接数据库"><a href="#解决-metasploit-启动后无法连接数据库" class="headerlink" title="解决 metasploit 启动后无法连接数据库"></a><a href="#解决metasploit启动后无法连接数据库" title="解决metasploit启动后无法连接数据库"></a>解决 metasploit 启动后无法连接数据库</h3><p>使用自动化脚本安装好<code>Metasploit</code>后使用<code>db_status</code>发现数据库是处于连接状态的, 然后在使用<code>db_rebuild_cache</code>重新建立缓存, 等待大约 3 分钟后, 便可以使用快速搜索了, 没毛病~  
+但是<br>在一段日子过后, 可能会出现以下情况:</p>
+<p><img src="https://image.3001.net/images/20180507/15256704978052.png" alt></p>
+<p>Bash</p>
+<pre><code>ln -s /data/data/com.termux/files/home/storage/shared/tencent/TIMfile_recv TIM</code></pre><p>报这个错误是因为<code>postgresql</code>数据库没有启动造成的. 解决方法就是启动数据库:</p>
+<blockquote>
+<p>本方法只针对 termux 上使用自动化脚本安装 msf</p>
+</blockquote>
+<p>Bash</p>
+<pre><code>$ vim .zshrc</code></pre><p>启动数据库后重新进入<code>msfconsole</code>会发现启动没有报错了,<code>db_status</code>查看下数据库连接, 也正常了:</p>
+<p><img src="https://image.3001.net/images/20180507/1525670956965.png" alt></p>
+<h2 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a><a href="#Nmap" title="Nmap"></a>Nmap</h2><p>端口扫描必备工具</p>
+<p><img src="https://image.3001.net/images/20180502/15252522986960.png" alt></p>
+<h2 id="hydra"><a href="#hydra" class="headerlink" title="hydra"></a><a href="#hydra" title="hydra"></a>hydra</h2><p>Hydra 是著名的黑客组织 THC 的一款开源暴力破解工具这是一个验证性质的工具，主要目的是：展示安全研究人员从远程获取一个系统认证权限。</p>
+<p><img src="https://image.3001.net/images/20180502/1525253245778.png!" alt></p>
+<h2 id="sslscan"><a href="#sslscan" class="headerlink" title="sslscan"></a><a href="#sslscan" title="sslscan"></a>sslscan</h2><p>SSLscan 主要探测基于 ssl 的服务，如 https。SSLscan 是一款探测目标服务器所支持的 SSL 加密算法工具。<br>SSlscan 的代码托管在 <a href="https://github.com/DinoTools/sslscan" target="_blank" rel="noopener">Github</a></p>
+<p><img src="https://image.3001.net/images/20180502/15252523713030.png" alt></p>
+<h2 id="whatportis"><a href="#whatportis" class="headerlink" title="whatportis"></a><a href="#whatportis" title="whatportis"></a>whatportis</h2><p>whatportis 是一款可以通过服务查询默认端口，或者是通过端口查询默认服务的工具，简单易用。在渗透测试过程中，如果需要查询某个端口绑定什么服务器，或者某个应用绑定的默认端口，可以使用 whatportis 查询。</p>
+<p><img src="https://image.3001.net/images/20180502/1525254451611.png!" alt></p>
+<h2 id="SQLmap"><a href="#SQLmap" class="headerlink" title="SQLmap"></a><a href="#SQLmap" title="SQLmap"></a>SQLmap</h2><p>SQLmap 是一款用来检测与利用 SQL 注入漏洞的免费开源工具 <a href="https://github.com/sqlmapproject/sqlmap" target="_blank" rel="noopener">官方项目地址</a></p>
+<p>直接<code>git clone</code>源码</p>
+<pre><code>ZSH_THEME=&quot;random&quot;</code></pre><blockquote>
+<p>sqlmap 支持 pip 安装了, 所以建议直接 pip install sqlmap 来进行安装, 然后终端下直接 sqlmap 就可以了, 十分方便.</p>
+</blockquote>
+<p><img src="https://image.3001.net/images/20180502/15252521782388.png" alt></p>
+<h2 id="RouterSploit"><a href="#RouterSploit" class="headerlink" title="RouterSploit"></a><a href="#RouterSploit" title="RouterSploit"></a>RouterSploit</h2><p>RouteSploit 框架是一款开源的路由器等嵌入式设备漏洞检测及利用框架。</p>
+<p>Bash</p>
+<pre><code>vim $PREFIX/etc/motd</code></pre><p><img src="https://image.3001.net/images/20180502/15252536832530.png" alt></p>
+<h2 id="Slowloris"><a href="#Slowloris" class="headerlink" title="Slowloris"></a><a href="#Slowloris" title="Slowloris"></a>Slowloris</h2><p>低带宽的 DoS 工具</p>
+<pre><code>pkg install proot</code></pre><p><img src="https://image.3001.net/images/20180502/15252663642248.png" alt></p>
+<h2 id="RED-HAWK"><a href="#RED-HAWK" class="headerlink" title="RED_HAWK"></a><a href="#RED-HAWK" title="RED_HAWK"></a>RED_HAWK</h2><p>一款采用 PHP 语言开发的多合一型渗透测试工具，它可以帮助我们完成信息采集、SQL 漏洞扫描和资源爬取等任务。</p>
+<p>Bash</p>
+<pre><code>termux-chroot</code></pre><p><img src="https://image.3001.net/images/20180502/1525267319924.png!" alt></p>
+<h2 id="Cupp"><a href="#Cupp" class="headerlink" title="Cupp"></a><a href="#Cupp" title="Cupp"></a>Cupp</h2><p>Cupp 是一款用 Python 语言写成的可交互性的字典生成脚本。尤其适合社会工程学，当你收集到目标的具体信息后，你就可以通过这个工具来智能化生成关于目标的字典。</p>
+<pre><code>pkg install tsu</code></pre><p><img src="https://image.3001.net/images/20180502/15252677611697.png" alt></p>
+<h2 id="Hash-Buster"><a href="#Hash-Buster" class="headerlink" title="Hash-Buster"></a><a href="#Hash-Buster" title="Hash-Buster"></a>Hash-Buster</h2><p>Hash Buster 是一个用 python 编写的在线破解 Hash 的脚本，官方说 5 秒内破解, 速度实际测试还不错哦~</p>
+<pre><code>tsu</code></pre><p><img src="https://image.3001.net/images/20180502/15252684925926.png" alt></p>
+<h2 id="D-TECT"><a href="#D-TECT" class="headerlink" title="D-TECT"></a><a href="#D-TECT" title="D-TECT"></a>D-TECT</h2><p>D-TECT 是一个用 Python 编写的先进的渗透测试工具,</p>
+<ul>
+<li>wordpress 用户名枚举</li>
+<li>敏感文件检测</li>
+<li>子域名爆破</li>
+<li>端口扫描</li>
+<li>Wordperss 扫描</li>
+<li>XSS 扫描</li>
+<li>SQL 注入扫描等</li>
+</ul>
+<pre><code>cd ～
+pkg install wget
+wget https://Auxilus.github.io/metasploit.sh
+bash metasploit.sh</code></pre><p><img src="https://image.3001.net/images/20180502/152526900352.png" alt></p>
+<h2 id="WPSeku"><a href="#WPSeku" class="headerlink" title="WPSeku"></a><a href="#WPSeku" title="WPSeku"></a>WPSeku</h2><p>WPSeku 是一个用 Python 写的简单的 WordPress 漏洞扫描器，它可以被用来扫描本地以及远程安装的 WordPress 来找出安全问题。被评为 2017 年最受欢迎的十大开源黑客工具.</p>
+<p>Bash</p>
+<pre><code>msf &gt; db_rebuild_cache</code></pre><p><img src="https://image.3001.net/images/20180502/15252705506839.png" alt></p>
+<h2 id="XSStrike"><a href="#XSStrike" class="headerlink" title="XSStrike"></a><a href="#XSStrike" title="XSStrike"></a>XSStrike</h2><p>XSStrike 是一种先进的 XSS 检测工具。它具有强大的模糊测试引擎.</p>
+<p>Bash</p>
+<pre><code>msfconsole
+[-] Failed to connect to the database: could not connect to server: Connection refused
+        Is the server running on host &quot;127.0.0.1&quot; and accepting
+        TCP/IP connections on port 5432?</code></pre><p><img src="https://image.3001.net/images/20180502/15252722868294.png" alt></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a><a href="#小结" title="小结"></a>小结</h2><p>因为 Termux 完美的支持<code>Python</code>和<code>Perl</code>等语言, 所以有太多优秀的信息安全工具值得大家去发现了, 这里我就不一一列举了.</p>
+<h2 id="安装-python2-7"><a href="#安装-python2-7" class="headerlink" title="安装 python2.7"></a><a href="#安装python2-7" title="安装python2.7"></a>安装 python2.7</h2><p>安装完成后, 使用<code>python2</code>命令启动<code>python 2.7.14</code>环境.</p>
+<p><img src="https://image.3001.net/images/20180501/15251677413951.png" alt></p>
+<h2 id="安装-python3"><a href="#安装-python3" class="headerlink" title="安装 python3"></a><a href="#安装python3" title="安装python3"></a>安装 python3</h2><p>安装完成后, 使用<code>python</code>命令启动<code>python 3.6.5</code>环境.</p>
+<p><img src="https://image.3001.net/images/20180501/152516780621.png" alt></p>
+<h2 id="升级-pip-版本"><a href="#升级-pip-版本" class="headerlink" title="升级 pip 版本"></a><a href="#升级pip版本" title="升级pip版本"></a>升级 pip 版本</h2><p>Bash</p>
+<pre><code>pg_ctl -D $PREFIX/var/lib/postgresql start</code></pre><p>这两条命令分别升级了<code>pip2</code>和<code>pip3</code>到最新版.<br><strong>pip 版本查看</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251709032749.png" alt></p>
+<h2 id="ipython"><a href="#ipython" class="headerlink" title="ipython"></a><a href="#ipython" title="ipython"></a>ipython</h2><p>ipython 是一个 python 的交互式 shell，支持变量自动补全，自动缩进，支持 bash shell 命令，内置了许多很有用的功能和函数。学习 ipython 将会让我们以一种更高的效率来使用 python。<br>先安装<code>clang</code>, 否则直接使用<code>pip</code>安装<code>ipython</code>会失败报错.</p>
+<pre><code>pkg install nmap</code></pre><p>然后分别使用<code>ipython</code>和<code>ipython2</code>进入<code>py2</code>和<code>py3</code>控制台:</p>
+<p><img src="https://image.3001.net/images/20180501/15251711666731.png" alt></p>
+<h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a><a href="#编辑器" title="编辑器"></a>编辑器</h2><p>终端下有<code>vim</code>神器, 并且官方也已经封装了<code>vim-python</code>, 对<code>vim</code>进行了 Python 相关的优化.</p>
+<p>Bash</p>
+<pre><code>pkg install hydra</code></pre><p><strong>解决 termux 下的 vim 汉字乱码</strong></p>
+<p>在家目录下, 新建<code>.vimrc</code>文件</p>
+<p>添加内容如下:</p>
+<pre><code>pkg install sslscan</code></pre><p>然后<code>source</code>下变量:</p>
+<p><strong>效果图</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251690917140.png" alt></p>
+<h2 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a><a href="#安装nodejs" title="安装nodejs"></a>安装 nodejs</h2><p>安装比较方便, 但是在安装的时候报错了</p>
+<pre><code>pip2 install whatportis</code></pre><p>查了下是这边版本的问题</p>
+<p><img src="https://image.3001.net/images/20180501/15251603187936.png" alt></p>
+<p>官方的解决方法如下</p>
+<p><a href="https://github.com/rvagg/node-worker-farm/commit/0b2349c6c7ed5c51e234e418fad226875313e773" target="_blank" rel="noopener">disable concurrency in case of libuv/libuv#1459</a></p>
+<p><img src="https://image.3001.net/images/20180501/15251607456224.png" alt></p>
+<h2 id="解决-npm-安装报错"><a href="#解决-npm-安装报错" class="headerlink" title="解决 npm 安装报错"></a><a href="#解决npm安装报错" title="解决npm安装报错"></a>解决 npm 安装报错</h2><p>Bash</p>
+<pre><code>git clone https://github.com/sqlmapproject/sqlmap.git
+cd sqlmap
+python2 sqlmap.py</code></pre><p>我这里修改 length 的是<code>4</code>, 这个好像和 CPU 有关, 总之这里的 length 得指定一个数字.</p>
+<p><img src="https://image.3001.net/images/20180501/15251608278605.png" alt></p>
+<p>然后在重新安装下</p>
+<p><code>npm install hexo-cli -g</code></p>
+<p>成功.</p>
+<p>MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区在维护，采用 GPL 授权许可。开发这个分支的原因之一是：甲骨文公司收购了 MySQL 后，有将 MySQL 闭源的潜在风险，因此社区采用分支的方式来避开这个风险。</p>
+<h2 id="安装-mariadb"><a href="#安装-mariadb" class="headerlink" title="安装 mariadb"></a><a href="#安装mariadb" title="安装mariadb"></a>安装 mariadb</h2><h2 id="安装基本数据"><a href="#安装基本数据" class="headerlink" title="安装基本数据"></a><a href="#安装基本数据" title="安装基本数据"></a>安装基本数据</h2><h2 id="启动-mariadb-服务"><a href="#启动-mariadb-服务" class="headerlink" title="启动 mariadb 服务"></a><a href="#启动mariadb服务" title="启动mariadb服务"></a>启动 mariadb 服务</h2><p>启动完成后, 这个会话就一直存活, 类似与 debug 调试一样, 只有新建会话才可以操作.</p>
+<p><img src="https://image.3001.net/images/20180501/15251762051594.png" alt></p>
+<p>关于隐藏会话可以使用</p>
+<p><code>nohup</code></p>
+<p>命令和</p>
+<p><code>tmux</code></p>
+<p>命令, 这里我建议使用</p>
+<p><code>tmux</code></p>
+<p>命令</p>
+<h2 id="新建-termux-会话"><a href="#新建-termux-会话" class="headerlink" title="新建 termux 会话"></a><a href="#新建termux会话" title="新建termux会话"></a>新建 termux 会话</h2><p>由于 mariadb 安装的时候没有设置密码, 当前的<code>mariadb</code>密码为<code>空</code>.</p>
+<p>直接进入<code>mariadb</code>数据库. 输入<code>exit</code>退出数据库.</p>
+<p><img src="https://image.3001.net/images/20180501/15251770923501.png" alt></p>
+<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a><a href="#修改密码" title="修改密码"></a>修改密码</h2><p>输入一下命令, 进行密码相关的安全设置:</p>
+<p>Bash</p>
+<pre><code>pip2 install requests
+git clone https://github.com/reverse-shell/routersploit
+cd routersploit
+python2 rsf.py</code></pre><p><strong>输入当前输入密码</strong><br>因为是<code>空</code>密码, 这里默认 <code>回车</code></p>
+<p>Bash</p>
+<pre><code>git clone https://github.com/gkbrk/slowloris.git
+cd slowloris
+chmod +x slowloris.py</code></pre><p><strong>设置新密码</strong><br>这里设置新的 root 密码</p>
+<p>Bash</p>
+<pre><code>pkg install php
+git clone https://github.com/Tuhinshubhra/RED_HAWK.git
+cd RED_HAWK
+php rhawk.php</code></pre><p><strong>其他设置</strong><br>下面根据个人偏好来进行设置, 没有绝对的要求</p>
+<p>Bash</p>
+<pre><code>git clone https://github.com/Mebus/cupp.git
+cd cupp
+python2 cupp.py</code></pre><h2 id="使用密码登录数据库"><a href="#使用密码登录数据库" class="headerlink" title="使用密码登录数据库"></a><a href="#使用密码登录数据库" title="使用密码登录数据库"></a>使用密码登录数据库</h2><p>Mysql</p>
+<pre><code>git clone https://github.com/UltimateHackers/Hash-Buster.git
+cd Hash-Buster
+python2 hash.py</code></pre><p><img src="https://image.3001.net/images/20180501/15251777161538.png" alt></p>
+<p>Tmux 是一个优秀的终端复用软件，类似 GNU Screen，但来自于 OpenBSD，采用 BSD 授权。一旦你熟悉了 tmux 后， 它就像一个加速器一样加速你的工作效率。</p>
+<h2 id="安装-tmux"><a href="#安装-tmux" class="headerlink" title="安装 tmux"></a><a href="#安装tmux" title="安装tmux"></a>安装 tmux</h2><h2 id="新建-mysql-会话"><a href="#新建-mysql-会话" class="headerlink" title="新建 mysql 会话"></a><a href="#新建mysql会话" title="新建mysql会话"></a>新建 mysql 会话</h2><p>上面介绍的<code>mysqld</code>后会一直卡在那里, 强迫症表示接受不了,<code>重启手机</code>, 现在尝试使用<code>tmux</code>来管理会话.</p>
+<p>可以看到最下面的提示, 表明现在是在<code>mysql</code>的会话下面操作</p>
+<p><img src="https://image.3001.net/images/20180501/15251785128162.png" alt></p>
+<h2 id="启动-mysqld-并断开会话"><a href="#启动-mysqld-并断开会话" class="headerlink" title="启动 mysqld 并断开会话"></a><a href="#启动mysqld并断开会话" title="启动mysqld并断开会话"></a>启动 mysqld 并断开会话</h2><p><strong>启动 mysqld</strong></p>
+<p><strong>让会话后台运行</strong><br>使用快捷键组合<code>Ctrl</code>+<code>b</code> + <code>d</code>，三次按键就可以断开当前会话。</p>
+<h2 id="使用-mysql"><a href="#使用-mysql" class="headerlink" title="使用 mysql"></a><a href="#使用mysql" title="使用mysql"></a>使用 mysql</h2><p>现在那个<code>mysqld</code>会话被放在后台运行了, 整个界面看上去很简介, 使用</p>
+<p>可以优雅的使用数据库了.<br><strong>效果图</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251788017133.gif" alt></p>
+<p>关于</p>
+<p><code>tmux</code></p>
+<p>更多进阶的用法这里不在过多介绍了.</p>
+<p><code>termux</code>封装的 php 版本是<code>php 7.2.5</code></p>
+<h2 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a><a href="#安装PHP" title="安装PHP"></a>安装 PHP</h2><p><strong>查看下版本</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251829165152.png" alt></p>
+<blockquote>
+<p>自<code>PHP5.4</code>之后 PHP 内置了一个 Web 服务器, 来在<code>termux</code>下尝试下 PHP Web Server 的简单使.</p>
+</blockquote>
+<h2 id="编写测试文件"><a href="#编写测试文件" class="headerlink" title="编写测试文件"></a><a href="#编写测试文件" title="编写测试文件"></a>编写测试文件</h2><p>在家目录下建一个<code>www</code>文件夹:<code>mkdir www</code><br>在<code>www</code>文件夹下新建一个<code>index.php</code>文件, 其内容为</p>
+<p><img src="https://image.3001.net/images/20180501/15251831922563.png" alt></p>
+<h2 id="启动-WebServer"><a href="#启动-WebServer" class="headerlink" title="启动 WebServer"></a><a href="#启动WebServer" title="启动WebServer"></a>启动 WebServer</h2><pre><code>git clone https://github.com/shawarkhanethicalhacker/D-TECT.git
+cd D-TECT
+python2 d-tect.py</code></pre><p>浏览器访问效果如下:</p>
+<p><img src="https://image.3001.net/images/20180501/15251833614865.png" alt></p>
+<p>Nginx 是一个高性能的 Web 和反向代理服务器, 它具有有很多非常优越的特性.</p>
+<h2 id="安装-nginx-包"><a href="#安装-nginx-包" class="headerlink" title="安装 nginx 包"></a><a href="#安装nginx包" title="安装nginx包"></a>安装 nginx 包</h2><h2 id="切换-root-用户"><a href="#切换-root-用户" class="headerlink" title="切换 root 用户"></a><a href="#切换root用户" title="切换root用户"></a>切换 root 用户</h2><p>尝试下能不能解析默认的<code>index.html</code>主页<br>这个文件在<code>termux</code>上的默认位置为<code>/data/data/com.termux/files/usr/share/nginx/html/index.html</code><br><strong>切换 root 用户</strong></p>
+<blockquote>
+<p>默认的普通权限无法启动 nginx, 需要模拟<code>root</code>权限才可以</p>
+</blockquote>
+<p>没有这个命令的话, 手动安装<code>pkg install proot</code>包</p>
+<p>进入模拟的 root 环境</p>
+<h2 id="启动-nginx"><a href="#启动-nginx" class="headerlink" title="启动 nginx"></a><a href="#启动nginx" title="启动nginx"></a>启动 nginx</h2><p>在模拟的 root 环境下启动<code>nginx</code></p>
+<p><code>termux</code>上<code>nginx</code>默认的端口是<code>8080</code><br>查看下<code>8080</code>端口是否在运行</p>
+<p>Bash</p>
+<pre><code>git clone https://github.com/m4ll0k/WPSeku.git
+cd WPSeku
+pip3 install -r requirements.txt
+python3 wpseku.py</code></pre><p><img src="https://image.3001.net/images/20180502/15252383228620.png" alt></p>
+<p>然后手机本地直接访问:</p>
+<p><code>http://127.0.0.1:8080</code></p>
+<p>查看下</p>
+<p><code>nginx</code></p>
+<p>是否正常启动.</p>
+<p><strong>效果图</strong></p>
+<p><img src="https://image.3001.net/images/20180502/15252318618015.png" alt></p>
+<p>这样一个默认的</p>
+<p><code>nginx</code></p>
+<p>服务就起来了, 但是意义不大, 得配置一下可以解析</p>
+<p><code>php</code></p>
+<p>才会有更大的意义.</p>
+<h2 id="停止-nginx-服务"><a href="#停止-nginx-服务" class="headerlink" title="停止 nginx 服务"></a><a href="#停止nginx服务" title="停止nginx服务"></a>停止 nginx 服务</h2><p>这里是直接杀掉占用端口的进程, 具体端口以实际情况为准.</p>
+<h2 id="重启-nginx-服务"><a href="#重启-nginx-服务" class="headerlink" title="重启 nginx 服务"></a><a href="#重启nginx服务" title="重启nginx服务"></a>重启 nginx 服务</h2><p><code>nginx</code>解析<code>PHP</code>这里单独拿出一级标题来叙述, 成功解析的话, 下面安装<code>wordpress</code>等 cms 就会轻松很多.<br>nginx 本身不能处理 PHP，它只是个 web 服务器，当接收到 php 请求后发给 php 解释器处理, nginx 一般是把请求发 fastcgi 管理进程处理, PHP-FPM 是一个 PHP FastCGI 管理器, 所以这里得先安装<code>php-fpm</code>.</p>
+<blockquote>
+<p>这里默已经安装了 nginx 和 php, 没有安装的话, 使用<code>pkg install php nginx</code>来进行安装, 参考上面部分进行配置</p>
+</blockquote>
+<h2 id="安装并配置-php-fpm"><a href="#安装并配置-php-fpm" class="headerlink" title="安装并配置 php-fpm"></a><a href="#安装并配置php-fpm" title="安装并配置php-fpm"></a>安装并配置 php-fpm</h2><p><strong>安装 php-fpm</strong></p>
+<p><strong>配置 php-fpm</strong><br>进入<code>proot</code>环境, 然后编辑配置文件<code>www.conf</code>(先进 proot 可以更方便操作编写相关配置文件)</p>
+<p>Bash</p>
+<pre><code>git clone https://github.com/UltimateHackers/XSStrike.git
+cd XSStrike
+pip2 install -r requirements.txt
+python2 xsstrike</code></pre><p>定位搜索<code>listen</code>找到</p>
+<pre><code>pkg install python2</code></pre><p>将其改为</p>
+<h2 id="配置-nginx"><a href="#配置-nginx" class="headerlink" title="配置 nginx"></a><a href="#配置nginx" title="配置nginx"></a>配置 nginx</h2><p>在<code>proot</code>环境下, 然后编辑配置文件<code>nginx.conf</code></p>
+<pre><code>pkg install python</code></pre><p>下面给出已经配置好的模板文件, 直接编辑替换整个文件即可:</p>
+<p>Bash</p>
+<pre><code>python2 -m pip install --upgrade pip
+python -m pip install --upgrade pip</code></pre><p>里面的网站默认路径就是<code>nginx</code>默认的网站根目录:</p>
+<p>Bash</p>
+<pre><code>pkg install clang
+pip install ipython
+pip3.6 install ipython</code></pre><p>要修改网站默认路径的话, 只需要修改这两处即可.</p>
+<h2 id="建立-php-测试文件"><a href="#建立-php-测试文件" class="headerlink" title="建立 php 测试文件"></a><a href="#建立php测试文件" title="建立php测试文件"></a>建立 php 测试文件</h2><p>在<code>/usr/share/nginx/html</code>目录下新建一个<code>phpinfo.php</code>文件, 其内容是:<code>&lt;?php phpinfo();?&gt;</code></p>
+<p><img src="https://image.3001.net/images/20180502/15252458901236.png" alt></p>
+<p>went</p>
+<h2 id="启动-php-fpm-和-nginx"><a href="#启动-php-fpm-和-nginx" class="headerlink" title="启动 php-fpm 和 nginx"></a><a href="#启动php-fpm和nginx" title="启动php-fpm和nginx"></a>启动 php-fpm 和 nginx</h2><p>在<code>proot</code>环境下面分别启动<code>php-fpm</code>和<code>nginx</code>, 这里的<code>nginx</code>不在<code>proot</code>环境下启动后会出一些问题, 感兴趣的可以自己去研究看看.</p>
+<h2 id="浏览器访问测试"><a href="#浏览器访问测试" class="headerlink" title="浏览器访问测试"></a><a href="#浏览器访问测试" title="浏览器访问测试"></a>浏览器访问测试</h2><p>浏览器访问<code>http://127.0.0.1:8080/phpinfo.php</code> 查询<code>php</code>文件是否解析了.</p>
+<p><img src="https://image.3001.net/images/20180502/15252463292840.png" alt></p>
+<p>这里只是用<code>wordpress</code>做个典型安利来讲解, 类似地可以安装<code>Discuz</code>,<code>DeDecms</code>等国内主流的 PHP 应用程序.</p>
+<h2 id="方法一-使用-PHP-内置的-Web-Server"><a href="#方法一-使用-PHP-内置的-Web-Server" class="headerlink" title="方法一 使用 PHP 内置的 Web Server"></a><a href="#方法一-使用PHP内置的Web-Server" title="方法一 使用PHP内置的Web Server"></a>方法一 使用 PHP 内置的 Web Server</h2><p>确保安装并配置了<code>php</code>和<code>mariadb</code>, 没有安装好的话, 参考本文中具体细节部分来进行安装.<br><strong>新建数据库</strong></p>
+<blockquote>
+<p><code>***</code> 这里是 mysql 的密码</p>
+</blockquote>
+<p>Sql</p>
+<pre><code>pkg install vim-python</code></pre><p><strong>下载解压 wordpress</strong></p>
+<p>Bash</p>
+<pre><code>vim .vimrc</code></pre><p><strong>启动 PHP Web Server</strong><br>到解压后的<code>wordpress</code>目录下, 执行</p>
+<p>Bash</p>
+<pre><code>set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set enc=utf8
+set fencs=utf8,gbk,gb2312,gb18030</code></pre><p>然后浏览器访问<code>127.0.0.1:8080</code>开始进行<code>wordperss</code>的安装.<br><strong>效果图</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251896513740.png" alt></p>
+<h2 id="方法二-nginx-PHP-Mariadb"><a href="#方法二-nginx-PHP-Mariadb" class="headerlink" title="方法二 nginx+PHP+Mariadb"></a><a href="#方法二-nginx-PHP-Mariadb" title="方法二 nginx+PHP+Mariadb"></a>方法二 nginx+PHP+Mariadb</h2><p>上面使用的方法一是直接使用 PHP 自带的<code>PHP Web Server</code>来运行的, 看上去不够严谨~, 所以这里用<code>nginx</code>来部署<code>wordpress</code>.  
+确保安装了<code>PHP</code>,<code>php-fpm</code>,<code>mariadb</code>, 没有安装的话, 参考本文中具体细节部分来进行安装和配置.<br><strong>新建数据</strong>和 <strong>wordpress 下载</strong>参考上面的<code>方法一</code>, 这里主要介绍使用<code>nginx</code>去解析<code>wordpress</code>源文件.<br>当前解压后<code>wordpress</code>的绝对路径是:</p>
+<p>Bash</p>
+<pre><code>source .vimrc</code></pre><p><strong>编辑 nginx.conf</strong></p>
+<p>Bash</p>
+<pre><code>pkg install nodejs</code></pre><p>修改为如下几处:</p>
+<pre><code>Cannot read property &#39;length&#39; of undefined</code></pre><p><img src="https://image.3001.net/images/20180502/15252481801600.png" alt></p>
+<p><strong>启动 php-fpm 和 nginx</strong></p>
+<p>在</p>
+<p><code>proot</code></p>
+<p>环境下面分别启动</p>
+<p><code>php-fpm</code></p>
+<p>和</p>
+<p><code>nginx</code></p>
+<p>, 这里的</p>
+<p><code>nginx</code></p>
+<p>不在</p>
+<p><code>proot</code></p>
+<p>环境下启动后会出一些问题, 感兴趣的可以自己去研究看看.</p>
+<p><strong>安装 wordpress</strong><br>浏览器访问:<code>http://127.0.0.1:8080/wp-admin/setup-config.php</code>进行安装.<br><strong>效果图</strong></p>
+<p><img src="https://image.3001.net/images/20180502/15252484266727.png" alt></p>
+<p>同理安装其他博客也就轻而易举了, 可玩性大大增加~</p>
+<h2 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a><a href="#安装hexo" title="安装hexo"></a>安装 hexo</h2><h2 id="部署-hexo-博客环境"><a href="#部署-hexo-博客环境" class="headerlink" title="部署 hexo 博客环境"></a><a href="#部署hexo博客环境" title="部署hexo博客环境"></a>部署 hexo 博客环境</h2><p>然后建立一个目录, 然后到这个目录下初始化 hexo 环境</p>
+<pre><code>vim $PREFIX/lib/node_modules/npm/node_modules/worker-farm/lib/farm.js</code></pre><p><img src="https://image.3001.net/images/20180502/15251904412057.png" alt></p>
+<p>然后就跑起来一个最基本的 hexo 博客</p>
+<p>关于 hexo 博客的详细教程, 建议搭建去参考 hexo 官方文档, 我这里重点在于 termux 其他的不作过多的叙述.</p>
+<p><strong>效果图</strong></p>
+<p><img src="https://image.3001.net/images/20180502/1525190501582.png!" alt></p>
+<p>有时候要操作电脑, 这个时候有了<code>termux</code>, 躺在床上就可以操作电脑了, 岂不是美滋滋~~  
+安装<code>openssh</code></p>
+<p>然后就可以直接 ssh 连接你的电脑了</p>
+<blockquote>
+<p>前提是电脑安装了 ssh 服务</p>
+</blockquote>
+<p>Bash</p>
+<pre><code>pkg install mariadb</code></pre><p>手机连接操作电脑效果图:</p>
+<p><img src="https://image.3001.net/images/20180501/15251634576779.png" alt></p>
+<p>emmm 这个需求比较鸡肋, 但是写文字嘛就得写全了~</p>
+<p><strong>安装 openssh</strong></p>
+<p>同样也需要<code>openssh</code>才可以</p>
+<p><strong>启动 sshd</strong></p>
+<p>安装完成后,<code>sshd</code>服务默认没有启动, 所以得手动启动下:</p>
+<p>因为手机上面低的端口有安全限制, 所以这里的<code>openssh</code>默认的<code>sshd</code>默认的服务是<code>8022</code>端口上的.<br><code>ssh</code>的用户名用<code>whoami</code>命令看下.</p>
+<p><img src="https://image.3001.net/images/20180501/15251646896319.png" alt></p>
+<p>可以看到</p>
+<p><code>sshd</code></p>
+<p>启动后, 端口才可以看到.</p>
+<p><strong>PC 端生成公钥</strong></p>
+<p><code>ssh</code>登录是 key 公钥模式登录, 首先在 PC 端生成秘钥:</p>
+<p>Bash</p>
+<pre><code>mysql_install_db</code></pre><p>执行完成后，会在家目录下创建 3 个文件<br><code>id_rsa</code>, <code>id_rsa.pub</code> , <code>known_hosts</code></p>
+<p><img src="https://image.3001.net/images/20180501/15251652383913.png" alt></p>
+<p><strong>拷贝公钥到手机</strong></p>
+<p>然后把公钥<code>id_rsa.pub</code>拷贝到手机的<code>data\data\com.termux\files\home\.ssh</code>文件夹中.</p>
+<p><strong>将公钥拷贝到验证文件中</strong></p>
+<p>在<code>Termux</code>下操作</p>
+<p>Bash</p>
+<pre><code>mysqld</code></pre><p><img src="https://image.3001.net/images/20180501/15251669649531.png" alt></p>
+<p><strong>PC 端连接手机 termux</strong></p>
+<p>Bash</p>
+<pre><code>mysql</code></pre><p><strong>效果图</strong></p>
+<p><img src="https://image.3001.net/images/20180501/15251672621339.png" alt></p>
+<p>pc 端连接手机 termux 真心鸡肋呀~(忍不住自己吐槽下自己)</p>
+<p>Aria2 是一个轻量级多协议和多源命令行下载实用工具。它支持 HTTP / HTTPS, FTP, SFTP, bt 和 Metalink。通过内置 Aria2 可以操作 json - rpc 和 xml - rpc。配置好的话还可以高速下载百度云文件.</p>
+<h2 id="安装-aria2"><a href="#安装-aria2" class="headerlink" title="安装 aria2"></a><a href="#安装aria2" title="安装aria2"></a>安装 aria2</h2><h2 id="本地启动服务"><a href="#本地启动服务" class="headerlink" title="本地启动服务"></a><a href="#本地启动服务" title="本地启动服务"></a>本地启动服务</h2><p>Bash</p>
+<pre><code>mysql_secure_installation</code></pre><p>这个<code>rpc</code>服务默认监听的是<code>6800</code>端口, 启动后方便下面的 Web 界面连接操作.</p>
+<h2 id="webui-aria2"><a href="#webui-aria2" class="headerlink" title="webui-aria2"></a><a href="#webui-aria2" title="webui-aria2"></a>webui-aria2</h2><p>这是个 Aria2 的热门项目, 把 Aria2 封装在了 Web 平台, 操作起来更加简单便捷。</p>
+<pre><code>Enter current password for root (enter for none):</code></pre><blockquote>
+<p>需要 node 来运行, 没有安装的 话使用<code>pkg install nodejs</code>来安装</p>
+</blockquote>
+<p>使用效果图 , 速度蛮快的 , 有兴趣的可以研究如何利用<code>aria2</code>来下载百度云文件, 等你们来探索.</p>
+<p><img src="https://image.3001.net/images/20180502/15252753579498.png" alt></p>
+<p><a href="https://github.com/mholt/caddy" target="_blank" rel="noopener">官方项目地址</a></p>
+<h2 id="安装-caddy"><a href="#安装-caddy" class="headerlink" title="安装 caddy"></a><a href="#安装caddy" title="安装caddy"></a>安装 caddy</h2><p>官方: 到目前为止，在 Android 上运行 Caddy 有两种方式：<code>Termux</code>和<code>adb</code>, 所以那就顺便折腾一下看看吧:</p>
+<p>Bash</p>
+<pre><code>Set root password? [Y/n] y
+New password:
+Re-enter new password:</code></pre><p>这一步可能执行要<code>3</code>番钟左右, 耐心等待一下即可.</p>
+<h2 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a><a href="#编写配置文件" title="编写配置文件"></a>编写配置文件</h2><p>内容如下:</p>
+<p>Bash</p>
+<pre><code>Remove anonymous users? [Y/n] Y                #是否移除匿名用户
+Disallow root login remotely? [Y/n] n          #是否不允许root远程登录
+Remove test database and access to it? [Y/n] n #是否移除test数据库
+Reload privilege tables now? [Y/n] y           #是否重新加载表的权限</code></pre><p>这里的<code>8080</code>端口号可以随意指定, 因为手机权限比较低, 所以一般设置<code>1024</code>以上的端口.</p>
+<p>注意<code>8080</code>和<code>{</code>之间有一个<code>空格</code></p>
+<p>注意<code>/ / sdcard</code> 两个斜杠之间也有一个空格</p>
+<h2 id="启动-caddy"><a href="#启动-caddy" class="headerlink" title="启动 caddy"></a><a href="#启动caddy" title="启动caddy"></a>启动 caddy</h2><p><img src="https://image.3001.net/images/20180503/15253177578355.png" alt></p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a><a href="#效果" title="效果"></a>效果</h2><p>浏览器访问:<code>http://127.0.0.1:8080</code>即可, 局域网内的用户访问手机 ip 地址即可.</p>
+<p>默认账号和密码为<code>admin</code>,<code>admin</code>.</p>
+<p><img src="https://image.3001.net/images/20180503/15253179015491.png" alt></p>
+<p>可以在设置界面里面 <code>设置简体中文</code>, 可以修改<code>更新默认密码</code>.</p>
+<p>可以直接查看文件, 也支持<code>Linux</code>命令搜索.</p>
+<p><img src="https://image.3001.net/images/20180503/15253180376304.png" alt></p>
+<p><img src="https://image.3001.net/images/20180503/1525317995747.png!" alt></p>
+<p>Termux:API，用于访问手机硬件, 实现更多的可玩性, 可以实现如下等功能:</p>
+<ul>
+<li>访问电池信息</li>
+<li>获取相机设备信息</li>
+<li>获取本机设备信息</li>
+<li>获取设置剪贴板信息</li>
+<li>获取通讯录信息</li>
+<li>获取设置手机短信</li>
+<li>拨打号码</li>
+<li>振动设备</li>
+</ul>
+<h2 id="安装-Termux-api"><a href="#安装-Termux-api" class="headerlink" title="安装 Termux-api"></a><a href="#安装Termux-api" title="安装Termux-api"></a>安装 Termux-api</h2><p><a href="https://play.google.com/store/apps/details?id=com.termux.api" target="_blank" rel="noopener">Termux-api Google Play 下载地址</a></p>
+<p><img src="https://image.3001.net/images/20180503/15253115369877.png" alt></p>
+<blockquote>
+<p>补充一下链接<a href="https://www.zhihu.com/question/22382577" target="_blank" rel="noopener">如何在电脑上下载 Google play 上的应用？</a></p>
+</blockquote>
+<h2 id="安装-Termux-api-软件包"><a href="#安装-Termux-api-软件包" class="headerlink" title="安装 Termux-api 软件包"></a><a href="#安装Termux-api软件包" title="安装Termux-api软件包"></a>安装 Termux-api 软件包</h2><p>安装完<code>Termux-api</code>APP 后,<code>Termux</code>里面必须安装对应的包后才可以实现操作手机底层.</p>
+<p>Bash</p>
+<pre><code>$ mysql -uroot -p
+Enter password: ***apache2</code></pre><p>下面只列举一些可能会用到的, 想要获取更多关于<code>Termux-api</code>的话, 那就去参考官方文档.</p>
+<h2 id="获取电池信息"><a href="#获取电池信息" class="headerlink" title="获取电池信息"></a><a href="#获取电池信息" title="获取电池信息"></a>获取电池信息</h2><p>Bash</p>
+<pre><code>pkg install tmux</code></pre><p>可以看到电池的 - 健康状况 - 电量百分比 - 温度情况等</p>
+<p>Bash</p>
+<pre><code>tmux new -s mysql</code></pre><h2 id="获取相机信息"><a href="#获取相机信息" class="headerlink" title="获取相机信息"></a><a href="#获取相机信息" title="获取相机信息"></a>获取相机信息</h2><h2 id="获取与设置剪贴板"><a href="#获取与设置剪贴板" class="headerlink" title="获取与设置剪贴板"></a><a href="#获取与设置剪贴板" title="获取与设置剪贴板"></a>获取与设置剪贴板</h2><p><strong>查看当前剪贴板内容</strong></p>
+<p><strong>设置新的剪贴板内容</strong></p>
+<pre><code>mysqld</code></pre><p><strong>效果演示</strong></p>
+<p><img src="https://image.3001.net/images/20180503/15253126104329.png" alt></p>
+<h2 id="获取通讯录列表"><a href="#获取通讯录列表" class="headerlink" title="获取通讯录列表"></a><a href="#获取通讯录列表" title="获取通讯录列表"></a>获取通讯录列表</h2><p><img src="https://image.3001.net/images/20180503/15253128744968.png" alt></p>
+<h2 id="查看短信内容列表"><a href="#查看短信内容列表" class="headerlink" title="查看短信内容列表"></a><a href="#查看短信内容列表" title="查看短信内容列表"></a>查看短信内容列表</h2><p><img src="https://image.3001.net/images/20180503/15253131256045.png" alt></p>
+<h2 id="发送短信"><a href="#发送短信" class="headerlink" title="发送短信"></a><a href="#发送短信" title="发送短信"></a>发送短信</h2><p>支持同时发送多个号码, 实现群发的效果, 官方介绍如下:</p>
+<pre><code>mysql -uroot -p</code></pre><p><strong>发送测试</strong></p>
+<p>Bash</p>
+<pre><code>pkg install php</code></pre><p><img src="https://image.3001.net/images/20180503/15253135795603.png" alt></p>
+<h2 id="拨打电话"><a href="#拨打电话" class="headerlink" title="拨打电话"></a><a href="#拨打电话" title="拨打电话"></a>拨打电话</h2><p>Bash</p>
+<pre><code>&lt;?php phpinfo();?&gt;</code></pre><p>拨打电话给<code>10001</code>中国电信, 查看下话费有没有欠费~?</p>
+<pre><code>php -S 127.0.0.1:8080 -t www/</code></pre><p><img src="https://image.3001.net/images/20180503/15253140551807.png" alt></p>
+<h2 id="WiFi-相关"><a href="#WiFi-相关" class="headerlink" title="WiFi 相关"></a><a href="#WiFi相关" title="WiFi相关"></a>WiFi 相关</h2><p><strong>获取当前 WiFi 连接信息</strong></p>
+<p>Bash</p>
+<pre><code>pkg install nginx</code></pre><p><strong>获取最近一次 WiFi 扫描信息</strong></p>
+<p><img src="https://image.3001.net/images/20180503/15253138725488.png" alt></p>
+<h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a><a href="#小结-1" title="小结"></a>小结</h2><p>直接操作调动系统底层的话, 可以通过编程来实现自动定时短信发送, 语音播报等 DIY 空间无线</p>
+<p>一些无聊有趣的版块, 如果你是一个正经讲究人, 可以跳过这个板块以节约你的阅读时间.</p>
+<h2 id="nyancat-彩虹猫"><a href="#nyancat-彩虹猫" class="headerlink" title="nyancat 彩虹猫"></a><a href="#nyancat-彩虹猫" title="nyancat 彩虹猫"></a>nyancat 彩虹猫</h2><p><strong>彩虹貓</strong>（英语：<strong>Nyan Cat</strong>）是在 2011 年 4 月上传在 Youtube 的视频，并且迅速爆红于网络，並在 2011 年 YouTube 浏览量最高的视频中排名第五.</p>
+<p>Bash</p>
+<pre><code>termux-chroot</code></pre><p><img src="https://image.3001.net/images/20180503/15253150101146.png" alt></p>
+<p>什么鬼<del>完全 Get 不到国外人的趣味点</del></p>
+<h2 id="终端二维码"><a href="#终端二维码" class="headerlink" title="终端二维码"></a><a href="#终端二维码" title="终端二维码"></a>终端二维码</h2><p>Linux 命令行下的二维码, 主要核心是这个网址:<code>http://qrenco.de/</code></p>
+<p>Bash</p>
+<pre><code>nginx</code></pre><p><img src="https://image.3001.net/images/20180503/15253248656208.png" alt></p>
+<p>如果你不嫌无聊的话还可以扫描这个二维码, 然后就打开我的博客了.</p>
+<h2 id="终端地图"><a href="#终端地图" class="headerlink" title="终端地图"></a><a href="#终端地图" title="终端地图"></a>终端地图</h2><p>一个基于<code>nodejs</code>编写的命令行下的地图.</p>
+<pre><code>netstat -an |grep 8080</code></pre><p>进入终端地图</p>
+<p><img src="https://image.3001.net/images/20180503/15253279325608.png" alt></p>
+<p><strong>操作方法</strong></p>
+<ul>
+<li>方向键 移动</li>
+<li><code>a</code>和<code>z</code>键 放大缩小</li>
+<li><code>q</code>键 退出</li>
+</ul>
+<p>终端下的地图! 讲究人~ 如果你足够无聊的话, 还可以尝试能不能在这个地图上找到自己所在的位置.</p>
+<h2 id="安装-Linux"><a href="#安装-Linux" class="headerlink" title="安装 Linux"></a><a href="#安装Linux" title="安装Linux"></a>安装 Linux</h2><p>甚至还可以在<code>Termux</code>里面在安装其他的<code>Linux</code>发行版.</p>
+<p>由于本文篇幅已经过长了, 这里不在叙述了, 感兴趣, 能折腾的自己去找一些资料. 下面列出目前网友们用<code>Termux</code>可以成功安装的发行版:</p>
+<ul>
+<li>Ubuntu</li>
+<li>Arch</li>
+<li>Fedora</li>
+<li>Kali Nethunter</li>
+</ul>
+<p><strong>Ubuntu</strong></p>
+<p><img src="https://image.3001.net/images/20180503/152531894937.png" alt></p>
+<p><strong>Fedora</strong></p>
+<p><img src="https://image.3001.net/images/20180503/15253195783545.png" alt></p>
+<h2 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a><a href="#内网穿透" title="内网穿透"></a>内网穿透</h2><p>使用<code>ngrok</code>或者<code>frp</code>可以将<code>Termux</code>上面搭建的网站映射到外网上去,<code>手机建站</code>也不是不可能了.</p>
+<h2 id="Python-Jupyter-Notebook"><a href="#Python-Jupyter-Notebook" class="headerlink" title="Python Jupyter Notebook"></a><a href="#Python-Jupyter-Notebook" title="Python Jupyter Notebook"></a>Python Jupyter Notebook</h2><p>Jupyter notebook（又称 IPython notebook），支持运行超过 40 种编程语言。Python 的一个强大的模块, 成功安装的话可以实现比<code>caddy</code>的效果, 支持<code>web</code>下的终端操作, 支持代码高亮运行. 由于这里需要安装大量文件, 加上用户需求比较少, 这一块感兴趣的话可以自己去探索.</p>
+<p><img src="https://image.3001.net/images/20180503/15253189096532.png" alt></p>
+<h2 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a><a href="#下载工具" title="下载工具"></a>下载工具</h2><ul>
+<li>you-get</li>
+</ul>
+<p>是一款命令行工具，用来下载网页中的视频、音频、图片，支持众多网站，包含 41 家国内主流视频、音乐网站，如 网易云音乐、AB<br>站、百度贴吧、斗鱼、熊猫、爱奇艺、凤凰视频、酷狗音乐、乐视、荔枝 FM、秒拍、腾讯视频、优酷土豆、央视网、芒果 TV<br>等等，只需一个命令就能直接下载视频、音频以及图片回来，并且可以自动合并视频。而对于有弹幕的网站，比如 B 站，还可以将弹幕下载回来</p>
+<ul>
+<li>BaiduPCS-Go</li>
+</ul>
+<p>仿 Linux shell 文件处理命令的百度网盘命令行客户端.</p>
+<p><a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">项目地址</a></p>
+<p>可以完美在<code>Termux</code>上运行.</p>
+<p><img src="https://image.3001.net/images/20180503/15253199952050.png" alt></p>
+<p>相对来说 国外的 Termux DIY 的氛围比国内好很多, Youtube 上的视频都有很高的播放量:</p>
+<p><img src="https://image.3001.net/images/20180503/1525326786911.png" alt></p>
+<p>当然国内也有这么一批执着于<code>Termux</code>的玩家, 只是相对来说还比较小众, 写这篇文章只想让更多的人认识到<code>Termux</code>的生产力, 使用<code>Termux</code>来做一些很 cool 的事情. 期待有更多<code>Termux</code>的优秀文章出现<del>~</del></p>
+
+  </article>
+  
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>本文作者：</strong>Mercutio<br>
+<strong>本文链接：</strong><a href="http://mercutio.club/2019/11/19/Termux 高级终端安装使用配置教程/" title="http://mercutio.club/2019/11/19/Termux 高级终端安装使用配置教程/" target="_blank" rel="noopener">http://mercutio.club/2019/11/19/Termux 高级终端安装使用配置教程/</a><br>
+
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: 'c3fad546e238d98b21eed0ba68855b90b0027c07',
+        id: window.location.pathname,
+        repo: 'mercutiojohn.github.io',
+        owner: 'mercutiojohn',
+        admin: 'mercutiojohn'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1574862069546"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

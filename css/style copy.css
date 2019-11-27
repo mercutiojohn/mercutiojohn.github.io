@@ -114,8 +114,8 @@ body {
 }
 #nexmoe-header .nexmoe-list .nexmoe-list-item.active {
   opacity: 0.9;
-  background: #2dbdff;
-  box-shadow: 0 2px 12px #2dbdff;
+  background: #ff4e6a;
+  box-shadow: 0 2px 12px #ff4e6a;
 }
 #nexmoe-header .nexmoe-list .nexmoe-list-item i {
   font-size: 22px;
@@ -270,9 +270,9 @@ body {
 }
 #nexmoe-content .nexmoe-primary .nexmoe-page-nav .current {
   color: #fff;
-  background: #2dbdff;
+  background: #ff4e6a;
   opacity: 0.9;
-  box-shadow: 0 2px 12px #2dbdff;
+  box-shadow: 0 2px 12px #ff4e6a;
 }
 #nexmoe-content .nexmoe-posts {
   position: relative;
@@ -357,7 +357,7 @@ body {
   margin-right: 5px;
 }
 #nexmoe-content .nexmoe-post .nexmoe-post-meta a:nth-child(7n+1) {
-  background-color: #2dbdff;
+  background-color: #ff4e6a;
 }
 #nexmoe-content .nexmoe-post .nexmoe-post-meta a:nth-child(7n+2) {
   background-color: #ffaa73;
@@ -509,7 +509,7 @@ article pre::after {
   content: " ";
   position: absolute;
   border-radius: 50%;
-  background: #2dbdff;
+  background: #ff5f56;
   width: 12px;
   height: 12px;
   top: 0;
@@ -545,14 +545,14 @@ article pre code::after {
 article a {
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
-  color: #2dbdff;
+  color: #ff4e6a;
   text-decoration: none;
   position: relative;
   word-wrap: break-word;
 }
 article a:hover,
 article a:focus {
-  color: #2dbdff;
+  color: #ff4e6a;
 }
 article a::after {
   -webkit-transition: width 0.35s;
@@ -627,7 +627,7 @@ article h6:before {
   display: inline-block;
   width: 1em;
   content: '#';
-  color: #2dbdff;
+  color: #ff4e6a;
 }
 article h1 {
   font-size: 2.2em;
@@ -649,13 +649,13 @@ article h2:after {
   transition: all 0.35s;
   content: "";
   position: absolute;
-  background: rgba(45,189,255,0.85);
+  background: rgba(255,78,106,0.85);
   width: 1em;
   height: 5px;
   bottom: -3px;
   left: 0;
   border-radius: 6px;
-  box-shadow: 0 2px 12px rgba(45,189,255,0.85);
+  box-shadow: 0 2px 12px rgba(255,78,106,0.85);
 }
 article h2:hover:after {
   width: 2em;
@@ -859,13 +859,13 @@ details[open] > summary .remove {
   background: #f8f8f8 !important;
 }
 article .mdui-btn {
-  background-color: #2dbdff;
+  background-color: #ff4e6a;
   color: #fff;
   border-radius: 6px;
 }
 article .mdui-btn:focus,
 article .mdui-btn:hover {
-  background-color: #2dbdff;
+  background-color: #ff4e6a;
   color: #fff;
 }
 font.douyin {

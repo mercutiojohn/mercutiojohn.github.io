@@ -29,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1574932093014">
+  <link rel="stylesheet" href="/css/style.css?v=1574932694063">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -196,49 +196,6 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
-        <a href="/2019/11/28/在 liunx 上安装出错 没有 npm/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="/images/default_background.jpg" alt="在liunx上安装出错 没有 npm">
-                
-                <h1>在liunx上安装出错 没有 npm</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月28日</a>
-            <a><i class="nexmoefont icon-areachart"></i>445 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Linux/">Linux</a>
-            
-            
-        </div>
-        <article>
-            
-            <p>我在 Windows 上安装了 Ubuntu Bash。我已经拥有 nodejs 并 npm 在我的 Windows 机器上了 C:\Program Files\nodejs。在 Windows 的 bash shell 中，我正在运行一个使用 npm install 命令的脚本。该脚本给出以下错误</p>
-<dl><dt>: not foundram Files/nodejs/npm: 3: /mnt/c/Program Files/nodejs/npm:</dt><dd>not foundram Files/nodejs/npm: 5: /mnt/c/Program Files/nodejs/npm:<br>/mnt/c/Program Files/nodejs/npm: 6: /mnt/c/Program Files/nodejs/npm: Syntax error: word unexpected (expecting “in”)<br>NPM - 安装</dd></dl><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>“您也可以使用 Windows PowerShell 安装 node 和 npm，因此如果您这样做，它将无法正常运行您的子系统。这意味着您必须安装两次（Powershell 和 Subsystem）或者您决定做一件事。”</p>
-<p>如果前面的文字，没有帮助你，这是如何解决问题：<br>删除当前的安装</p>
-<pre><code>sudo apt-get --purge remove node
-(&quot;sudo apt autoremove node&quot; if console is asking for)
-sudo apt-get --purge remove nodejs</code></pre><p>以正确的方式安装节点</p>
-<pre><code>curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y nodejs
-sudo apt install note</code></pre><p>然后安装构建工具，以便稍后为 npm 安装附加组件</p>
-<pre><code>sudo apt-get install -y build-essential</code></pre><p>关于版本过低，修改下 setup_X.0 去修改<br>现在你可以输入</p>
-<p>npm -v<br>node -v<br>Same thing: nodejs -v<br>检查 npm 是否安装正确。它应该是。</p>
-<p>这是一个可以帮助您的链接。<br><a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions" target="_blank" rel="noopener">https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions</a></p>
-<p>注意：如果在完成此操作后显示相同的错误，请重新启动 bash。</p>
-<p>补一点杂粮</p>
-<blockquote>
-<p>sudo apt-get install build-essential patch ruby-dev libmysqlclient-dev<br>sudo apt-get install ruby-mysql2 git ruby rails<br>sudo apt-get install vim<br>git clone <a href="http://10.206.142.24/dengt7/zxy.git" target="_blank" rel="noopener">http://10.206.142.24/dengt7/zxy.git</a><br>cd zxy<br>bundle install<br>sudo gem pristine –all<br>进入到项目目录之后 rails server<br>打开浏览器输 127.0.0.1:3000<br>看到冒烟测试页面则成功</p>
-</blockquote>
-<p>可能还有问题</p>
-
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
         <a href="/2019/11/28/在个人博客里添加评论系统-Gitalk/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
@@ -326,7 +283,7 @@ sudo apt install note</code></pre><p>然后安装构建工具，以便稍后为 
         <a href="/2019/11/28/Flex 布局语法/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="/images/default_background.jpg" alt="Flex布局语法">
+                <img src="https://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png" alt="Flex布局语法">
                 
                 <h1>Flex布局语法</h1>
             </div>
@@ -343,9 +300,11 @@ sudo apt install note</code></pre><p>然后安装构建工具，以便稍后为 
         <article>
             
             <p>网页布局（layout）是 CSS 的一个重点应用。</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/7bf8bed24a17fbebd3e171f9630dbccb.gif" alt></p>
+<!-- ![](https://www.runoob.com/wp-content/uploads/2015/07/7bf8bed24a17fbebd3e171f9630dbccb.gif) -->
+
 <p>布局的传统解决方案，基于<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model" target="_blank" rel="noopener">盒状模型</a>，依赖 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" rel="noopener">display</a> 属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank" rel="noopener">position</a> 属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" target="_blank" rel="noopener">float</a> 属性。它对于那些特殊布局非常不方便，比如，<a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="noopener">垂直居中</a>就不容易实现。</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png" alt></p>
+<!-- ![](https://www.runoob.com/wp-content/uploads/2015/07/5a7d00514af1e464221c677c15e8e990.png) -->
+
 <p>2009 年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p>
 <p><img src="https://www.runoob.com/wp-content/uploads/2015/07/8712d713c7d0b884a5cb9770efc422b4.jpg" alt></p>
 <p>Flex 布局将成为未来布局的首选方案。本文介绍 Flex 布局的语法。</p>
@@ -487,9 +446,49 @@ sudo apt install note</code></pre><p>然后安装构建工具，以便稍后为 
   align-self: auto | flex-start | flex-end | center | baseline | stretch;
 }</code></pre><p><img src="https://www.runoob.com/wp-content/uploads/2015/07/55b19171b8b6b9487d717bf2ecbba6de.png" alt></p>
 <p>该属性可能取 6 个值，除了 auto，其他都与 align-items 属性完全一致。</p>
+<!-- > 来源：http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html -->
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/11/28/在 liunx 上安装出错 没有 npm/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="/images/default_background.jpg" alt="在liunx上安装出错 没有 npm">
+                
+                <h1>在liunx上安装出错 没有 npm</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月28日</a>
+            <a><i class="nexmoefont icon-areachart"></i>445 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Linux/">Linux</a>
+            
+            
+        </div>
+        <article>
+            
+            <p>我在 Windows 上安装了 Ubuntu Bash。我已经拥有 nodejs 并 npm 在我的 Windows 机器上了 C:\Program Files\nodejs。在 Windows 的 bash shell 中，我正在运行一个使用 npm install 命令的脚本。该脚本给出以下错误</p>
+<dl><dt>: not foundram Files/nodejs/npm: 3: /mnt/c/Program Files/nodejs/npm:</dt><dd>not foundram Files/nodejs/npm: 5: /mnt/c/Program Files/nodejs/npm:<br>/mnt/c/Program Files/nodejs/npm: 6: /mnt/c/Program Files/nodejs/npm: Syntax error: word unexpected (expecting “in”)<br>NPM - 安装</dd></dl><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>“您也可以使用 Windows PowerShell 安装 node 和 npm，因此如果您这样做，它将无法正常运行您的子系统。这意味着您必须安装两次（Powershell 和 Subsystem）或者您决定做一件事。”</p>
+<p>如果前面的文字，没有帮助你，这是如何解决问题：<br>删除当前的安装</p>
+<pre><code>sudo apt-get --purge remove node
+(&quot;sudo apt autoremove node&quot; if console is asking for)
+sudo apt-get --purge remove nodejs</code></pre><p>以正确的方式安装节点</p>
+<pre><code>curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt install note</code></pre><p>然后安装构建工具，以便稍后为 npm 安装附加组件</p>
+<pre><code>sudo apt-get install -y build-essential</code></pre><p>关于版本过低，修改下 setup_X.0 去修改<br>现在你可以输入</p>
+<p>npm -v<br>node -v<br>Same thing: nodejs -v<br>检查 npm 是否安装正确。它应该是。</p>
+<p>这是一个可以帮助您的链接。<br><a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions" target="_blank" rel="noopener">https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions</a></p>
+<p>注意：如果在完成此操作后显示相同的错误，请重新启动 bash。</p>
+<p>补一点杂粮</p>
 <blockquote>
-<p>来源：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
+<p>sudo apt-get install build-essential patch ruby-dev libmysqlclient-dev<br>sudo apt-get install ruby-mysql2 git ruby rails<br>sudo apt-get install vim<br>git clone <a href="http://10.206.142.24/dengt7/zxy.git" target="_blank" rel="noopener">http://10.206.142.24/dengt7/zxy.git</a><br>cd zxy<br>bundle install<br>sudo gem pristine –all<br>进入到项目目录之后 rails server<br>打开浏览器输 127.0.0.1:3000<br>看到冒烟测试页面则成功</p>
 </blockquote>
+<p>可能还有问题</p>
 
             
         </article>
@@ -1897,7 +1896,7 @@ public class heapSort {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1574932093022"></script>
+<script src="/js/app.js?v=1574932694068"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
